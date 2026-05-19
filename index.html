@@ -122,8 +122,9 @@ body {
   font-size: 0.88rem;
 }
 .flight-route .arrow { color: var(--gold); font-size: 1.1rem; }
-.flight-label { color: var(--gold); font-size: 0.72rem; letter-spacing: 2px; text-transform: uppercase; display: block; margin-bottom: 2px; }
-.flight-time { font-size: 1.1rem; font-weight: 600; }
+.flight-label { color: var(--gold); font-size: 0.72rem; letter-spacing: 2px; text-transform: uppercase; display: block; margin-bottom: 4px; }
+.flight-time { font-size: 1.1rem; font-weight: 600; display: block; white-space: nowrap; }
+.flight-sub { font-size: 0.75rem; color: rgba(255,255,255,0.45); margin-top: 3px; }
 .flight-divider { width: 1px; background: rgba(255,255,255,0.15); }
 
 /* ── STICKY NAV ── */
@@ -517,28 +518,27 @@ footer .footer-title {
     <div>
       <span class="flight-label">出發</span>
       <span class="flight-time">9/25 23:45</span>
-      <div style="font-size:0.75rem;color:rgba(255,255,255,0.45)">台北 T2</div>
+      <div class="flight-sub">台北 T2</div>
     </div>
     <span class="arrow">――✈――→</span>
     <div>
       <span class="flight-label">抵達</span>
       <span class="flight-time">9/26 07:35</span>
-      <div style="font-size:0.75rem;color:rgba(255,255,255,0.45)">米蘭 Malpensa T1</div>
+      <div class="flight-sub">米蘭 Malpensa T1 · BR 0095</div>
     </div>
-    <div style="font-size:0.78rem;color:rgba(255,255,255,0.45);margin-left:8px">BR 0095</div>
   </div>
   <div class="flight-divider"></div>
   <div class="flight-route">
     <div>
       <span class="flight-label">回程</span>
       <span class="flight-time">10/10 08:35</span>
-      <div style="font-size:0.75rem;color:rgba(255,255,255,0.45)">羅馬 Fiumicino</div>
+      <div class="flight-sub">羅馬 Fiumicino</div>
     </div>
     <span class="arrow">――✈――→</span>
     <div>
       <span class="flight-label">抵台</span>
       <span class="flight-time">10/11 06:35</span>
-      <div style="font-size:0.75rem;color:rgba(255,255,255,0.45)">台北 T2（經慕尼黑）</div>
+      <div class="flight-sub">台北 T2（經慕尼黑）</div>
     </div>
   </div>
 </div>
