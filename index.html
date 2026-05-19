@@ -3,1198 +3,1221 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>義大利 17 天｜2026 九月</title>
+<title>義大利 · 2026 秋</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 :root {
-  --milan: #c0392b;
-  --venice: #2471a3;
-  --florence: #d35400;
-  --rome: #7d6608;
-  --bg: #faf8f5;
-  --card: #ffffff;
-  --text: #2c2c2c;
-  --muted: #888;
-  --border: #e8e0d5;
+  --cream: #f9f4ed;
+  --dark: #1a1714;
+  --gold: #c9a84c;
+  --terracotta: #c25b3f;
+  --stone: #8a7f72;
+  --light-stone: #ede8e0;
 }
-* { box-sizing: border-box; margin: 0; padding: 0; }
-body { font-family: 'Helvetica Neue', Arial, sans-serif; background: var(--bg); color: var(--text); line-height: 1.65; }
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--cream);
+  color: var(--dark);
+  line-height: 1.7;
+}
 
-/* HERO */
+/* ── HERO ── */
 .hero {
-  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 40%, #0f3460 100%);
-  color: white;
-  text-align: center;
-  padding: 60px 20px 50px;
   position: relative;
+  height: 100vh;
+  min-height: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
   overflow: hidden;
 }
-.hero::before {
-  content: '';
+.hero-img {
   position: absolute; inset: 0;
-  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  background-image: url('https://images.unsplash.com/photo-1552832230-c0197dd311b5?auto=format&fit=crop&w=1800&q=85');
+  background-size: cover;
+  background-position: center 40%;
+  transform: scale(1.05);
+  transition: transform 8s ease;
 }
-.hero-flag { font-size: 3.5rem; margin-bottom: 12px; }
-.hero h1 { font-size: clamp(1.8rem, 5vw, 3rem); font-weight: 800; letter-spacing: -0.5px; }
-.hero-sub { font-size: 1.1rem; opacity: 0.85; margin-top: 8px; }
-.hero-dates { display: inline-flex; gap: 12px; margin-top: 20px; flex-wrap: wrap; justify-content: center; }
-.hero-badge {
-  background: rgba(255,255,255,0.15);
+.hero:hover .hero-img { transform: scale(1); }
+.hero-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(10,8,5,0.92) 0%, rgba(10,8,5,0.4) 50%, rgba(10,8,5,0.1) 100%);
+}
+.hero-content {
+  position: relative;
+  padding: 0 5vw 60px;
+  color: white;
+}
+.hero-eyebrow {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 16px;
+}
+.hero-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(3rem, 8vw, 7rem);
+  line-height: 1.05;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+.hero-title em {
+  font-style: italic;
+  color: var(--gold);
+}
+.hero-desc {
+  font-size: clamp(0.95rem, 2vw, 1.15rem);
+  color: rgba(255,255,255,0.75);
+  max-width: 560px;
+  margin-bottom: 36px;
+  font-weight: 300;
+  line-height: 1.8;
+}
+.hero-tags {
+  display: flex; flex-wrap: wrap; gap: 10px;
+}
+.hero-tag {
   border: 1px solid rgba(255,255,255,0.3);
-  border-radius: 20px; padding: 6px 16px;
-  font-size: 0.9rem; backdrop-filter: blur(4px);
+  color: white;
+  padding: 7px 18px;
+  border-radius: 30px;
+  font-size: 0.83rem;
+  backdrop-filter: blur(8px);
+  background: rgba(255,255,255,0.08);
+}
+.scroll-hint {
+  position: absolute;
+  bottom: 24px; right: 5vw;
+  color: rgba(255,255,255,0.4);
+  font-size: 0.75rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  display: flex; align-items: center; gap: 8px;
+}
+.scroll-hint::before {
+  content: '';
+  width: 1px; height: 40px;
+  background: rgba(255,255,255,0.3);
 }
 
-/* FLIGHT STRIP */
-.flight-strip {
-  background: #1a1a2e;
+/* ── FLIGHT BANNER ── */
+.flight-banner {
+  background: var(--dark);
   color: white;
+  padding: 20px 5vw;
   display: flex;
   justify-content: center;
-  align-items: center;
-  gap: 20px;
-  padding: 14px 20px;
+  gap: 40px;
   flex-wrap: wrap;
-  font-size: 0.9rem;
 }
-.flight-item { display: flex; align-items: center; gap: 8px; }
-.flight-arrow { opacity: 0.5; }
+.flight-route {
+  display: flex; align-items: center; gap: 14px;
+  font-size: 0.88rem;
+}
+.flight-route .arrow { color: var(--gold); font-size: 1.1rem; }
+.flight-label { color: var(--gold); font-size: 0.72rem; letter-spacing: 2px; text-transform: uppercase; display: block; margin-bottom: 2px; }
+.flight-time { font-size: 1.1rem; font-weight: 600; }
+.flight-divider { width: 1px; background: rgba(255,255,255,0.15); }
 
-/* NAV */
+/* ── STICKY NAV ── */
 .city-nav {
   position: sticky; top: 0; z-index: 100;
-  background: white;
-  border-bottom: 2px solid var(--border);
-  display: flex; gap: 0;
+  background: rgba(249,244,237,0.95);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--light-stone);
+  display: flex;
   overflow-x: auto;
   scrollbar-width: none;
+  padding: 0 5vw;
 }
 .city-nav::-webkit-scrollbar { display: none; }
 .city-nav a {
   flex: 0 0 auto;
-  padding: 14px 24px;
+  padding: 16px 20px;
   text-decoration: none;
-  color: var(--muted);
-  font-weight: 600;
-  font-size: 0.88rem;
-  border-bottom: 3px solid transparent;
+  color: var(--stone);
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  border-bottom: 2px solid transparent;
   transition: all 0.2s;
   white-space: nowrap;
 }
-.city-nav a:hover { color: var(--text); }
-.city-nav a.milan { border-bottom-color: var(--milan); color: var(--milan); }
-.city-nav a.venice { border-bottom-color: var(--venice); color: var(--venice); }
-.city-nav a.florence { border-bottom-color: var(--florence); color: var(--florence); }
-.city-nav a.rome { border-bottom-color: var(--rome); color: var(--rome); }
+.city-nav a:hover { color: var(--dark); border-bottom-color: var(--gold); }
 
-/* CONTAINER */
-.container { max-width: 900px; margin: 0 auto; padding: 0 16px; }
-
-/* SECTION */
-.section { padding: 40px 0 20px; }
-.section-title {
-  font-size: 1.5rem; font-weight: 800;
-  margin-bottom: 20px;
-  display: flex; align-items: center; gap: 10px;
+/* ── BOOKING SECTION ── */
+.booking-section {
+  padding: 80px 5vw;
+  max-width: 1000px;
+  margin: 0 auto;
 }
-
-/* BOOKING TABLE */
-.booking-table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
-.booking-table th {
-  background: #f0ebe3;
-  padding: 10px 14px;
-  text-align: left;
+.section-label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 12px;
+}
+.section-heading {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
   font-weight: 700;
-  border-bottom: 2px solid var(--border);
+  line-height: 1.2;
+  margin-bottom: 40px;
 }
-.booking-table td {
-  padding: 10px 14px;
-  border-bottom: 1px solid var(--border);
-  vertical-align: top;
-}
-.booking-table tr:last-child td { border-bottom: none; }
-.urgent { color: #c0392b; font-weight: 700; }
-.tag {
-  display: inline-block;
-  padding: 2px 8px; border-radius: 10px;
-  font-size: 0.78rem; font-weight: 600;
-}
-.tag-urgent { background: #fde8e8; color: #c0392b; }
-.tag-month { background: #fff3cd; color: #856404; }
-.tag-arrive { background: #d4edda; color: #155724; }
-
-/* CITY SECTION */
-.city-section { margin-bottom: 12px; }
-.city-header {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  padding: 20px 24px;
-  border-radius: 16px 16px 0 0;
-  color: white;
-  margin-top: 40px;
-}
-.city-header.milan { background: linear-gradient(135deg, var(--milan), #e74c3c); }
-.city-header.venice { background: linear-gradient(135deg, var(--venice), #2980b9); }
-.city-header.florence { background: linear-gradient(135deg, var(--florence), #e67e22); }
-.city-header.rome { background: linear-gradient(135deg, var(--rome), #b7950b); }
-.city-emoji { font-size: 2.5rem; }
-.city-info h2 { font-size: 1.6rem; font-weight: 800; }
-.city-info p { opacity: 0.9; font-size: 0.92rem; margin-top: 2px; }
-.city-hotel {
-  background: rgba(255,255,255,0.2);
-  border-radius: 8px;
-  padding: 6px 12px;
-  font-size: 0.83rem;
-  margin-top: 8px;
-  display: inline-block;
-}
-
-/* DAY CARDS */
-.day-cards { background: white; border: 1px solid var(--border); border-top: none; border-radius: 0 0 16px 16px; overflow: hidden; }
-.day-card {
-  border-bottom: 1px solid var(--border);
+.booking-grid {
   display: grid;
-  grid-template-columns: 90px 1fr;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
 }
-.day-card:last-child { border-bottom: none; }
-.day-label {
-  padding: 20px 14px;
+.booking-card {
+  background: white;
+  border-radius: 12px;
+  padding: 20px 22px;
+  border-left: 3px solid transparent;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.booking-card:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,0.1); }
+.booking-card.urgent { border-left-color: var(--terracotta); }
+.booking-card.soon { border-left-color: var(--gold); }
+.booking-card.arrive { border-left-color: #4caf50; }
+.booking-card-title { font-weight: 600; font-size: 0.95rem; margin-bottom: 6px; }
+.booking-card-note { font-size: 0.82rem; color: var(--stone); line-height: 1.5; }
+.booking-badge {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  padding: 3px 9px;
+  border-radius: 8px;
+  margin-bottom: 8px;
+}
+.badge-urgent { background: #fde8e4; color: var(--terracotta); }
+.badge-soon { background: #fdf3d8; color: #96730a; }
+.badge-arrive { background: #e8f5e9; color: #2e7d32; }
+
+/* ── CITY BLOCK ── */
+.city-block { margin-bottom: 0; }
+
+/* City Hero */
+.city-hero {
+  position: relative;
+  height: 70vh;
+  min-height: 400px;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+}
+.city-hero-img {
+  position: absolute; inset: 0;
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.6s ease;
+}
+.city-block:hover .city-hero-img { transform: scale(1.03); }
+.city-hero-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(10,8,5,0.85) 0%, rgba(10,8,5,0.2) 60%, transparent 100%);
+}
+.city-hero-content {
+  position: relative;
+  padding: 0 5vw 48px;
+  color: white;
+  width: 100%;
+}
+.city-tag {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  padding: 5px 14px;
+  border-radius: 20px;
+  border: 1px solid rgba(255,255,255,0.4);
+  margin-bottom: 14px;
+  backdrop-filter: blur(4px);
+  background: rgba(255,255,255,0.1);
+}
+.city-hero-name {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  font-weight: 700;
+  line-height: 1;
+  margin-bottom: 8px;
+}
+.city-hero-sub {
+  font-size: 0.92rem;
+  color: rgba(255,255,255,0.7);
+  font-weight: 300;
+}
+.city-hero-hotel {
+  margin-top: 16px;
+  font-size: 0.82rem;
+  color: rgba(255,255,255,0.6);
+}
+.city-hero-hotel strong { color: rgba(255,255,255,0.9); }
+
+/* Day Section */
+.day-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 480px;
+  border-bottom: 1px solid var(--light-stone);
+}
+.day-section.reverse { direction: rtl; }
+.day-section.reverse > * { direction: ltr; }
+
+.day-image-wrap {
+  position: relative;
+  overflow: hidden;
+  min-height: 380px;
+}
+.day-image {
+  position: absolute; inset: 0;
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.6s ease;
+}
+.day-section:hover .day-image { transform: scale(1.04); }
+.day-image-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(135deg, rgba(10,8,5,0.35), transparent);
+}
+.day-image-label {
+  position: absolute;
+  top: 24px; left: 24px;
+  color: white;
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 0.95rem;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.5);
+}
+
+.day-content-wrap {
+  padding: 48px 5vw 48px 40px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  border-right: 1px solid var(--border);
-  background: #faf8f5;
-  gap: 4px;
+  justify-content: center;
+  background: white;
 }
-.day-num { font-size: 1.4rem; font-weight: 800; line-height: 1; }
-.day-date { font-size: 0.72rem; color: var(--muted); text-align: center; }
-.day-week { font-size: 0.72rem; color: var(--muted); }
-.day-content { padding: 18px 20px; }
-.day-theme {
-  font-size: 0.8rem;
+.day-section.reverse .day-content-wrap { padding: 48px 40px 48px 5vw; }
+
+.day-eyebrow {
+  display: flex; align-items: center; gap: 10px;
+  margin-bottom: 12px;
+}
+.day-num-badge {
+  font-size: 0.72rem;
   font-weight: 700;
+  letter-spacing: 2px;
+  color: var(--gold);
   text-transform: uppercase;
-  letter-spacing: 0.5px;
-  margin-bottom: 10px;
-  opacity: 0.6;
 }
-.day-title { font-size: 1.05rem; font-weight: 700; margin-bottom: 12px; }
+.day-date-str { font-size: 0.78rem; color: var(--stone); }
 
-/* SCHEDULE ITEMS */
-.schedule { display: flex; flex-direction: column; gap: 8px; }
-.schedule-item {
-  display: flex;
-  gap: 12px;
-  align-items: flex-start;
+.day-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.3rem, 2.5vw, 1.9rem);
+  font-weight: 700;
+  line-height: 1.25;
+  margin-bottom: 16px;
+  color: var(--dark);
 }
-.schedule-time {
-  flex: 0 0 52px;
-  font-size: 0.78rem;
-  color: var(--muted);
-  font-weight: 600;
-  padding-top: 2px;
-}
-.schedule-body { flex: 1; }
-.schedule-spot {
-  font-weight: 600;
-  font-size: 0.92rem;
-}
-.schedule-note {
-  font-size: 0.82rem;
-  color: #666;
-  margin-top: 2px;
-}
-.tip-box {
-  background: #f0f6ff;
-  border-left: 3px solid #2a7ae4;
-  border-radius: 0 8px 8px 0;
-  padding: 8px 12px;
-  font-size: 0.83rem;
-  color: #1a4a8a;
-  margin-top: 8px;
-}
-.warn-box {
-  background: #fff8e1;
-  border-left: 3px solid #f0b429;
-  border-radius: 0 8px 8px 0;
-  padding: 8px 12px;
-  font-size: 0.83rem;
-  color: #7a5800;
-  margin-top: 8px;
+.day-narrative {
+  font-size: 0.88rem;
+  color: #5a524a;
+  line-height: 1.8;
+  margin-bottom: 20px;
+  font-weight: 300;
 }
 
-/* SPOT TAGS */
-.spots { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
-.spot-tag {
-  background: #f0ebe3;
-  border-radius: 12px;
-  padding: 4px 10px;
-  font-size: 0.8rem;
-  font-weight: 600;
+/* Timeline within day */
+.day-timeline { display: flex; flex-direction: column; gap: 12px; }
+.tl-item { display: flex; gap: 14px; align-items: flex-start; }
+.tl-dot-wrap {
+  display: flex; flex-direction: column; align-items: center;
+  flex: 0 0 auto; padding-top: 5px;
 }
-
-/* SUMMARY TABLE */
-.summary-table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
-.summary-table th { background: #1a1a2e; color: white; padding: 10px 12px; text-align: left; }
-.summary-table td { padding: 9px 12px; border-bottom: 1px solid var(--border); }
-.summary-table tr:nth-child(even) td { background: #f9f6f2; }
-.city-dot {
-  display: inline-block;
-  width: 10px; height: 10px;
+.tl-dot {
+  width: 8px; height: 8px;
   border-radius: 50%;
-  margin-right: 6px;
+  background: var(--gold);
+  flex-shrink: 0;
 }
+.tl-line {
+  width: 1px; flex: 1;
+  background: var(--light-stone);
+  min-height: 16px;
+  margin-top: 3px;
+}
+.tl-time { font-size: 0.73rem; color: var(--stone); font-weight: 500; flex: 0 0 44px; padding-top: 2px; }
+.tl-spot { font-size: 0.88rem; font-weight: 600; line-height: 1.4; }
+.tl-note { font-size: 0.78rem; color: var(--stone); margin-top: 2px; line-height: 1.5; }
 
-/* FOOTER */
+/* Tip/Warn */
+.day-tip {
+  margin-top: 16px;
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  line-height: 1.6;
+}
+.tip { background: #f0f6ff; color: #1a4a8a; border-left: 2px solid #2a7ae4; }
+.warn { background: #fff8e8; color: #7a5800; border-left: 2px solid #f0b429; }
+.highlight { background: #fef9ef; color: #7a4a00; border-left: 2px solid var(--gold); }
+
+/* Free day card */
+.free-day {
+  background: var(--dark);
+  color: white;
+  padding: 60px 5vw;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 40px;
+  align-items: center;
+}
+.free-day-left h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-style: italic;
+  color: var(--gold);
+  line-height: 1.1;
+}
+.free-day-left p { color: rgba(255,255,255,0.5); margin-top: 8px; font-size: 0.85rem; }
+.free-options { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.free-option {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 12px;
+  padding: 20px;
+}
+.free-option-label {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+.free-option h4 { font-size: 0.95rem; font-weight: 600; margin-bottom: 6px; }
+.free-option p { font-size: 0.8rem; color: rgba(255,255,255,0.55); line-height: 1.5; }
+
+/* ── SUMMARY ── */
+.summary-section {
+  padding: 80px 5vw;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+.timeline-wrap { position: relative; padding-left: 30px; }
+.timeline-wrap::before {
+  content: '';
+  position: absolute;
+  left: 6px; top: 0; bottom: 0;
+  width: 2px;
+  background: var(--light-stone);
+}
+.tl-day-row {
+  position: relative;
+  display: flex;
+  gap: 20px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--light-stone);
+  align-items: center;
+}
+.tl-day-row::before {
+  content: '';
+  position: absolute;
+  left: -27px;
+  width: 14px; height: 14px;
+  border-radius: 50%;
+  border: 2px solid white;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.tl-day-row.milan::before { background: #c0392b; }
+.tl-day-row.venice::before { background: #2471a3; }
+.tl-day-row.florence::before { background: #d35400; }
+.tl-day-row.rome::before { background: #7d6608; }
+.tl-day-row.transit::before { background: var(--stone); }
+.tl-day-date { flex: 0 0 80px; font-size: 0.8rem; color: var(--stone); font-weight: 500; }
+.tl-day-city { flex: 0 0 80px; font-size: 0.78rem; font-weight: 600; }
+.tl-day-theme { font-size: 0.88rem; flex: 1; }
+
+/* ── FOOTER ── */
 footer {
+  background: var(--dark);
+  color: rgba(255,255,255,0.4);
   text-align: center;
-  padding: 40px 20px;
-  color: var(--muted);
-  font-size: 0.85rem;
-  border-top: 1px solid var(--border);
-  margin-top: 40px;
+  padding: 50px 20px;
+  font-size: 0.82rem;
+}
+footer .footer-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.4rem;
+  color: rgba(255,255,255,0.8);
+  margin-bottom: 10px;
+  font-style: italic;
 }
 
-@media (max-width: 600px) {
-  .day-card { grid-template-columns: 70px 1fr; }
-  .day-label { padding: 14px 8px; }
-  .day-content { padding: 14px 14px; }
-  .city-header { padding: 16px 18px; }
-  .flight-strip { flex-direction: column; gap: 8px; }
-  .booking-table { font-size: 0.82rem; }
-  .booking-table th, .booking-table td { padding: 8px 10px; }
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+  .day-section { grid-template-columns: 1fr; }
+  .day-section.reverse { direction: ltr; }
+  .day-image-wrap { min-height: 260px; }
+  .day-content-wrap { padding: 32px 5vw !important; }
+  .free-day { grid-template-columns: 1fr; gap: 24px; }
+  .free-options { grid-template-columns: 1fr; }
+  .flight-banner { gap: 20px; }
+  .flight-divider { display: none; }
 }
 </style>
 </head>
 <body>
 
-<!-- HERO -->
-<div class="hero">
-  <div class="hero-flag">🇮🇹</div>
-  <h1>義大利 17 天完整行程</h1>
-  <p class="hero-sub">米蘭 → 威尼斯 → 佛羅倫斯 → 羅馬</p>
-  <div class="hero-dates">
-    <span class="hero-badge">📅 2026 / 9/25 – 10/11</span>
-    <span class="hero-badge">✈️ 長榮航空 BR</span>
-    <span class="hero-badge">🏨 4 城市 · 4 飯店</span>
-    <span class="hero-badge">🚄 3 段高鐵</span>
+<!-- ── HERO ── -->
+<section class="hero">
+  <div class="hero-img"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">✦ 2026 · Autumn · Italy ✦</p>
+    <h1 class="hero-title">La <em>Dolce</em><br>Italia</h1>
+    <p class="hero-desc">九月末，我們從台北飛向亞平寧半島。<br>
+    米蘭的時尚、威尼斯的水光、佛羅倫斯的藝術、羅馬的永恆——<br>
+    17 天，4 座城市，一趟無法複製的秋日旅程。</p>
+    <div class="hero-tags">
+      <span class="hero-tag">📅 9/25 – 10/11</span>
+      <span class="hero-tag">✈️ BR 長榮航空</span>
+      <span class="hero-tag">🏨 4 城市 · 4 飯店</span>
+      <span class="hero-tag">🚄 高鐵串接</span>
+      <span class="hero-tag">🇮🇹 17 天</span>
+    </div>
+  </div>
+  <div class="scroll-hint">Scroll</div>
+</section>
+
+<!-- ── FLIGHT BANNER ── -->
+<div class="flight-banner">
+  <div class="flight-route">
+    <div>
+      <span class="flight-label">出發</span>
+      <span class="flight-time">9/25 23:45</span>
+      <div style="font-size:0.75rem;color:rgba(255,255,255,0.45)">台北 T2</div>
+    </div>
+    <span class="arrow">――✈――→</span>
+    <div>
+      <span class="flight-label">抵達</span>
+      <span class="flight-time">9/26 07:35</span>
+      <div style="font-size:0.75rem;color:rgba(255,255,255,0.45)">米蘭 Malpensa T1</div>
+    </div>
+    <div style="font-size:0.78rem;color:rgba(255,255,255,0.45);margin-left:8px">BR 0095</div>
+  </div>
+  <div class="flight-divider"></div>
+  <div class="flight-route">
+    <div>
+      <span class="flight-label">回程</span>
+      <span class="flight-time">10/10 08:35</span>
+      <div style="font-size:0.75rem;color:rgba(255,255,255,0.45)">羅馬 Fiumicino</div>
+    </div>
+    <span class="arrow">――✈――→</span>
+    <div>
+      <span class="flight-label">抵台</span>
+      <span class="flight-time">10/11 06:35</span>
+      <div style="font-size:0.75rem;color:rgba(255,255,255,0.45)">台北 T2（經慕尼黑）</div>
+    </div>
   </div>
 </div>
 
-<!-- FLIGHT INFO -->
-<div class="flight-strip">
-  <div class="flight-item">✈️ 去程</div>
-  <div class="flight-item">
-    <strong>9/25（五）23:45</strong>
-    <span class="flight-arrow">→</span>
-    <strong>9/26（六）07:35</strong>
-  </div>
-  <div class="flight-item">BR 0095 台北 T2 → 米蘭 Malpensa T1</div>
-  <div style="opacity:0.3">｜</div>
-  <div class="flight-item">✈️ 回程</div>
-  <div class="flight-item">
-    <strong>10/10（六）08:35</strong>
-    <span class="flight-arrow">→</span>
-    <strong>10/11（日）06:35</strong>
-  </div>
-  <div class="flight-item">羅馬 → 慕尼黑 → 台北 T2</div>
-</div>
-
-<!-- CITY NAV -->
-<nav class="city-nav">
-  <a href="#checklist">📋 預約清單</a>
-  <a href="#milan" class="milan">🔴 米蘭</a>
-  <a href="#venice" class="venice">🔵 威尼斯</a>
-  <a href="#florence" class="florence">🟠 佛羅倫斯</a>
-  <a href="#rome" class="rome">🟡 羅馬</a>
-  <a href="#summary">📊 總覽</a>
+<!-- ── NAV ── -->
+<nav class="city-nav" id="top-nav">
+  <a href="#checklist">預約清單</a>
+  <a href="#milan">🔴 米蘭</a>
+  <a href="#venice">🔵 威尼斯</a>
+  <a href="#florence">🟠 佛羅倫斯</a>
+  <a href="#rome">🟡 羅馬</a>
+  <a href="#summary">總覽</a>
 </nav>
 
-<div class="container">
-
-<!-- CHECKLIST -->
-<div class="section" id="checklist">
-  <h2 class="section-title">📋 行前必預約清單</h2>
-  <div style="overflow-x:auto;">
-  <table class="booking-table">
-    <tr>
-      <th>景點</th>
-      <th>建議預約時機</th>
-      <th>說明</th>
-    </tr>
-    <tr>
-      <td><strong>達文西《最後的晚餐》</strong></td>
-      <td><span class="tag tag-urgent">越早越好</span></td>
-      <td class="urgent">非常難搶，官網開放後立刻訂</td>
-    </tr>
-    <tr>
-      <td><strong>米蘭大教堂屋頂</strong></td>
-      <td><span class="tag tag-month">出發前 1–2 個月</span></td>
-      <td>建議買教堂＋屋頂電梯套票（Duomo Pass Lift）</td>
-    </tr>
-    <tr>
-      <td><strong>烏菲茲美術館</strong></td>
-      <td><span class="tag tag-month">出發前 1–2 個月</span></td>
-      <td>下午 4 點後票價有優惠，可考慮 16:00 入場</td>
-    </tr>
-    <tr>
-      <td><strong>學院美術館（大衛像）</strong></td>
-      <td><span class="tag tag-month">出發前 1–2 個月</span></td>
-      <td>開放 08:15–18:50，最後入場 18:20</td>
-    </tr>
-    <tr>
-      <td><strong>梵蒂岡博物館</strong></td>
-      <td><span class="tag tag-month">出發前 1–2 個月</span></td>
-      <td>週一至週六 08:00–20:00，最後入場 18:00</td>
-    </tr>
-    <tr>
-      <td><strong>羅馬競技場＋古羅馬廣場</strong></td>
-      <td><span class="tag tag-urgent">開票後立刻訂</span></td>
-      <td>2026/10 開放至 18:30，最後入場 17:30</td>
-    </tr>
-    <tr>
-      <td><strong>聖母百花聖殿穹頂</strong></td>
-      <td><span class="tag tag-month">出發前 1–2 個月</span></td>
-      <td>登穹頂或鐘樓需提前預約</td>
-    </tr>
-    <tr>
-      <td><strong>佛羅倫斯 MH 水療 SPA</strong></td>
-      <td><span class="tag tag-arrive">入住前先預約</span></td>
-      <td>避免當天客滿</td>
-    </tr>
-    <tr>
-      <td><strong>威尼斯 ACTV 72 小時交通卡</strong></td>
-      <td><span class="tag tag-arrive">抵達當天</span></td>
-      <td>€45；6–29 歲可查 Rolling Venice 優惠票</td>
-    </tr>
-  </table>
-  </div>
-</div>
-
-<!-- MILAN -->
-<div id="milan">
-  <div class="city-header milan">
-    <div class="city-emoji">🏙️</div>
-    <div class="city-info">
-      <h2>米蘭 Milano</h2>
-      <p>9/26（六）— 9/28（一）· 2 晚</p>
-      <div class="city-hotel">🏨 米蘭 7BA 飯店｜Corso Buenos Aires, 7</div>
+<!-- ── BOOKING ── -->
+<section class="booking-section" id="checklist">
+  <p class="section-label">Before You Go</p>
+  <h2 class="section-heading">行前必預約<br>票一定要先搶</h2>
+  <div class="booking-grid">
+    <div class="booking-card urgent">
+      <span class="booking-badge badge-urgent">⚠ 越早越好</span>
+      <div class="booking-card-title">達文西《最後的晚餐》</div>
+      <div class="booking-card-note">全球最難搶的藝術預約之一。每個時段僅 30 人入場，官網一開放就下手，錯過可能等到行程結束還沒票。</div>
+    </div>
+    <div class="booking-card urgent">
+      <span class="booking-badge badge-urgent">⚠ 越早越好</span>
+      <div class="booking-card-title">羅馬競技場 + 古羅馬廣場</div>
+      <div class="booking-card-note">2026/10 開放至 18:30，最後入場 17:30。票券常被第三方搶購後加價出售，只從官方購票。</div>
+    </div>
+    <div class="booking-card soon">
+      <span class="booking-badge badge-soon">出發前 1–2 個月</span>
+      <div class="booking-card-title">梵蒂岡博物館</div>
+      <div class="booking-card-note">週一至週六 08:00–20:00，最後入場 18:00。旺季排隊數小時，早上 08:30 入場最優。</div>
+    </div>
+    <div class="booking-card soon">
+      <span class="booking-badge badge-soon">出發前 1–2 個月</span>
+      <div class="booking-card-title">烏菲茲美術館</div>
+      <div class="booking-card-note">下午 4 點後票價有折扣，適合排傍晚。達文西、米開朗基羅、波提切利真跡都在這裡。</div>
+    </div>
+    <div class="booking-card soon">
+      <span class="booking-badge badge-soon">出發前 1–2 個月</span>
+      <div class="booking-card-title">學院美術館（大衛像）</div>
+      <div class="booking-card-note">08:15–18:50，最後入場 18:20。3.7 米高的大理石原作，站在腳下才知道震撼有多大。</div>
+    </div>
+    <div class="booking-card soon">
+      <span class="booking-badge badge-soon">出發前 1–2 個月</span>
+      <div class="booking-card-title">米蘭大教堂 Duomo Pass Lift</div>
+      <div class="booking-card-note">含屋頂電梯、教堂、考古區。站在哥德式尖頂之間俯瞰米蘭，是很少人有的視角。</div>
+    </div>
+    <div class="booking-card soon">
+      <span class="booking-badge badge-soon">出發前 1–2 個月</span>
+      <div class="booking-card-title">聖母百花聖殿 穹頂登頂</div>
+      <div class="booking-card-note">布魯內萊斯基的文藝復興穹頂，從外面看和從裡面看完全是不同的感動。二選一：穹頂 or 鐘樓。</div>
+    </div>
+    <div class="booking-card arrive">
+      <span class="booking-badge badge-arrive">抵達當天處理</span>
+      <div class="booking-card-title">威尼斯 ACTV 72 小時交通卡</div>
+      <div class="booking-card-note">€45，涵蓋所有水上巴士與本島交通。在 Santa Lucia 車站旁的 ACTV 售票處購買。</div>
+    </div>
+    <div class="booking-card arrive">
+      <span class="booking-badge badge-arrive">入住前預約</span>
+      <div class="booking-card-title">佛羅倫斯 MH 水療 SPA</div>
+      <div class="booking-card-note">一天旅行後在 SPA 放鬆是很奢侈的享受，避免當天客滿，提前預約時段。</div>
     </div>
   </div>
-  <div class="day-cards">
+</section>
 
-    <!-- Day 1 -->
-    <div class="day-card">
-      <div class="day-label">
-        <div class="day-num">D1</div>
-        <div class="day-date">9/25</div>
-        <div class="day-week">五</div>
-      </div>
-      <div class="day-content">
-        <div class="day-theme">出發日</div>
-        <div class="day-title">🛫 台北出發</div>
-        <div class="schedule">
-          <div class="schedule-item">
-            <div class="schedule-time">19:00</div>
-            <div class="schedule-body">
-              <div class="schedule-spot">前往桃園機場 T2</div>
-              <div class="schedule-note">行李建議分裝：隨身包（護照、信用卡、充電器、薄外套）+ 托運</div>
-            </div>
-          </div>
-          <div class="schedule-item">
-            <div class="schedule-time">21:00</div>
-            <div class="schedule-body">
-              <div class="schedule-spot">登機</div>
-            </div>
-          </div>
-          <div class="schedule-item">
-            <div class="schedule-time">23:45</div>
-            <div class="schedule-body">
-              <div class="schedule-spot">✈️ BR 0095 台北 T2 → 米蘭 Malpensa T1</div>
-              <div class="schedule-note">飛行約 13 小時 50 分</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+<!-- ══════════════════ MILAN ══════════════════ -->
+<section class="city-block" id="milan">
 
-    <!-- Day 2 -->
-    <div class="day-card">
-      <div class="day-label">
-        <div class="day-num">D2</div>
-        <div class="day-date">9/26</div>
-        <div class="day-week">六</div>
-      </div>
-      <div class="day-content">
-        <div class="day-theme">米蘭 Day 1</div>
-        <div class="day-title">🎨 達文西最後的晚餐 + 斯福爾扎古堡</div>
-        <div class="schedule">
-          <div class="schedule-item">
-            <div class="schedule-time">07:35</div>
-            <div class="schedule-body">
-              <div class="schedule-spot">抵達米蘭 Malpensa T1</div>
-              <div class="schedule-note">Malpensa Express → Milano Centrale → 飯店放行李</div>
-            </div>
-          </div>
-          <div class="schedule-item">
-            <div class="schedule-time">午前</div>
-            <div class="schedule-body">
-              <div class="schedule-spot">輕鬆午餐</div>
-              <div class="schedule-note">飯店附近：義式咖啡 + 三明治，或 Risotto alla Milanese</div>
-            </div>
-          </div>
-          <div class="schedule-item">
-            <div class="schedule-time">14:00</div>
-            <div class="schedule-body">
-              <div class="schedule-spot">🖼️ 達文西《最後的晚餐》</div>
-              <div class="schedule-note">恩寵聖母教堂（Santa Maria delle Grazie）｜⚠️ 需提前預約</div>
-            </div>
-          </div>
-          <div class="schedule-item">
-            <div class="schedule-time">16:30</div>
-            <div class="schedule-body">
-              <div class="schedule-spot">🏰 斯福爾扎古堡 → 森皮奧內公園 → 和平門</div>
-            </div>
-          </div>
-          <div class="schedule-item">
-            <div class="schedule-time">晚餐</div>
-            <div class="schedule-body">
-              <div class="schedule-spot">Brera 布雷拉區</div>
-              <div class="schedule-note">第一晚不要太晚，早點休息</div>
-            </div>
-          </div>
-        </div>
-        <div class="tip-box">💡 第一天剛下飛機，不要排太滿。14:00 以後再出發就好。</div>
-      </div>
-    </div>
-
-    <!-- Day 3 -->
-    <div class="day-card">
-      <div class="day-label">
-        <div class="day-num">D3</div>
-        <div class="day-date">9/27</div>
-        <div class="day-week">日</div>
-      </div>
-      <div class="day-content">
-        <div class="day-theme">米蘭 Day 2</div>
-        <div class="day-title">⛪ 大教堂 + 拱廊 + 精品街</div>
-        <div class="schedule">
-          <div class="schedule-item">
-            <div class="schedule-time">09:00</div>
-            <div class="schedule-body">
-              <div class="schedule-spot">🕍 米蘭大教堂 Duomo di Milano</div>
-              <div class="schedule-note">建議買 Duomo Pass Lift（含屋頂電梯、考古區）</div>
-            </div>
-          </div>
-          <div class="schedule-item">
-            <div class="schedule-time">11:00</div>
-            <div class="schedule-body">
-              <div class="schedule-spot">🏛️ 埃馬努埃萊二世拱廊</div>
-              <div class="schedule-note">→ 史卡拉歌劇院外觀 → Brera 區午餐</div>
-            </div>
-          </div>
-          <div class="schedule-item">
-            <div class="schedule-time">14:00</div>
-            <div class="schedule-body">
-              <div class="schedule-spot">💎 蒙特拿破崙大街精品區</div>
-              <div class="schedule-note">Via Montenapoleone → Via della Spiga → 梵克雅寶</div>
-            </div>
-          </div>
-          <div class="schedule-item">
-            <div class="schedule-time">傍晚</div>
-            <div class="schedule-body">
-              <div class="schedule-spot">🌊 Navigli 運河區</div>
-              <div class="schedule-note">散步 + Aperitivo 開胃酒 + 晚餐</div>
-            </div>
-          </div>
-        </div>
-        <div class="spots">
-          <span class="spot-tag">🌟 星巴克臻選烘焙工坊</span>
-          <span class="spot-tag">🌈 Porta Venezia 同志區</span>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</div>
-
-<!-- VENICE -->
-<div id="venice">
-  <div class="city-header venice">
-    <div class="city-emoji">🚢</div>
-    <div class="city-info">
-      <h2>威尼斯 Venezia</h2>
-      <p>9/28（一）— 10/1（四）· 3 晚</p>
-      <div class="city-hotel">🏨 Hotel Rio｜Campo SS. Filippo e Giacomo, Castello</div>
+  <div class="city-hero">
+    <div class="city-hero-img" style="background-image:url('https://images.unsplash.com/photo-1520175480921-4edfa2983e0f?auto=format&fit=crop&w=1800&q=85')"></div>
+    <div class="city-hero-overlay"></div>
+    <div class="city-hero-content">
+      <span class="city-tag">🔴 City 01</span>
+      <h2 class="city-hero-name">Milano</h2>
+      <p class="city-hero-sub">9/26（六）— 9/28（一）· 2 晚 · 時尚之都</p>
+      <p class="city-hero-hotel">🏨 <strong>米蘭 7BA 飯店</strong>｜Corso Buenos Aires — 2025 新建，位置好，生活機能佳</p>
     </div>
   </div>
-  <div class="day-cards">
 
-    <!-- Day 4 -->
-    <div class="day-card">
-      <div class="day-label">
-        <div class="day-num">D4</div>
-        <div class="day-date">9/28</div>
-        <div class="day-week">一</div>
-      </div>
-      <div class="day-content">
-        <div class="day-theme">移動日</div>
-        <div class="day-title">🚄 米蘭 → 威尼斯 + 里阿爾托橋</div>
-        <div class="schedule">
-          <div class="schedule-item">
-            <div class="schedule-time">10:30</div>
-            <div class="schedule-body">
-              <div class="schedule-spot">搭高鐵出發</div>
-              <div class="schedule-note">Milano Centrale → Venezia Santa Lucia（約 2.5 小時）</div>
-            </div>
-          </div>
-          <div class="schedule-item">
-            <div class="schedule-time">13:00</div>
-            <div class="schedule-body">
-              <div class="schedule-spot">抵達威尼斯</div>
-              <div class="schedule-note">購買 ACTV 72 小時交通卡（€45）→ 搭水上巴士至飯店</div>
-            </div>
-          </div>
-          <div class="schedule-item">
-            <div class="schedule-time">下午</div>
-            <div class="schedule-body">
-              <div class="schedule-spot">🌉 San Polo 聖保羅區</div>
-              <div class="schedule-note">里阿爾托橋 → 大運河夕景 → 小巷漫步</div>
-            </div>
-          </div>
-          <div class="schedule-item">
-            <div class="schedule-time">晚餐</div>
-            <div class="schedule-body">
-              <div class="schedule-spot">威尼斯小酒館</div>
-              <div class="schedule-note">墨魚麵（Spaghetti al nero di seppia）或 Cicchetti 小點</div>
-            </div>
-          </div>
-        </div>
-        <div class="tip-box">💡 今天重點是熟悉威尼斯水上交通，不要排太多景點。</div>
-      </div>
+  <!-- Day 2: 最後的晚餐 + 古堡 -->
+  <div class="day-section">
+    <div class="day-image-wrap">
+      <div class="day-image" style="background-image:url('https://images.unsplash.com/photo-1533929736458-ca588d08c8be?auto=format&fit=crop&w=900&q=80')"></div>
+      <div class="day-image-overlay"></div>
+      <div class="day-image-label">恩寵聖母教堂 · 米蘭</div>
     </div>
-
-    <!-- Day 5 -->
-    <div class="day-card">
-      <div class="day-label">
-        <div class="day-num">D5</div>
-        <div class="day-date">9/29</div>
-        <div class="day-week">二</div>
+    <div class="day-content-wrap">
+      <div class="day-eyebrow">
+        <span class="day-num-badge">Day 2 · 9/26 六</span>
+        <span class="day-date-str">剛落地，慢慢來</span>
       </div>
-      <div class="day-content">
-        <div class="day-theme">威尼斯 Day 2</div>
-        <div class="day-title">🏛️ 聖馬可廣場 + 學院橋</div>
-        <div class="schedule">
-          <div class="schedule-item">
-            <div class="schedule-time">08:00</div>
-            <div class="schedule-body">
-              <div class="schedule-spot">🦁 聖馬可廣場 Piazza San Marco</div>
-              <div class="schedule-note">早上人少，先佔位拍照</div>
-            </div>
-          </div>
-          <div class="schedule-item">
-            <div class="schedule-time">09:00</div>
-            <div class="schedule-body">
-              <div class="schedule-spot">聖馬可大教堂 + 總督宮 + 嘆息橋</div>
-              <div class="schedule-note">建議提前預約內部參觀票</div>
-            </div>
-          </div>
-          <div class="schedule-item">
-            <div class="schedule-time">午後</div>
-            <div class="schedule-body">
-              <div class="schedule-spot">往 Rialto 外圍午餐</div>
-              <div class="schedule-note">避開聖馬可周邊觀光價</div>
-            </div>
-          </div>
-          <div class="schedule-item">
-            <div class="schedule-time">14:30</div>
-            <div class="schedule-body">
-              <div class="schedule-spot">🎭 鳳凰劇院外觀 → 學院橋</div>
-              <div class="schedule-note">從聖馬可慢走到學院橋，拍大運河</div>
-            </div>
-          </div>
-          <div class="schedule-item">
-            <div class="schedule-time">傍晚</div>
-            <div class="schedule-body">
-              <div class="schedule-spot">🛶 貢多拉或 Vaporetto 1 號</div>
-              <div class="schedule-note">傍晚坐貢多拉最有氣氛；省預算可搭 1 號線看大運河</div>
-            </div>
-          </div>
+      <h3 class="day-title">飛越 13 小時後，<br>先見達文西</h3>
+      <p class="day-narrative">07:35 落地米蘭。入境、換錢、搭 Malpensa Express 進城——抵達飯店放下行李，大約是正午。不要貪心排太多，第一天的核心只有一件事：看達文西的《最後的晚餐》。</p>
+      <div class="day-timeline">
+        <div class="tl-item">
+          <div class="tl-dot-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div>
+          <div class="tl-time">07:35</div>
+          <div><div class="tl-spot">抵達 Malpensa T1 → 市區</div><div class="tl-note">Malpensa Express → Milano Centrale → 飯店寄放行李</div></div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div>
+          <div class="tl-time">14:00</div>
+          <div><div class="tl-spot">🖼 達文西《最後的晚餐》</div><div class="tl-note">恩寵聖母教堂（Santa Maria delle Grazie）｜每批僅 30 人，15 分鐘｜⚠ 需提早預約</div></div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div>
+          <div class="tl-time">16:30</div>
+          <div><div class="tl-spot">🏰 斯福爾扎古堡 → 森皮奧內公園</div><div class="tl-note">黃昏光線下的古堡最美，走進公園散散步</div></div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot-wrap"><div class="tl-dot"></div></div>
+          <div class="tl-time">晚餐</div>
+          <div><div class="tl-spot">Brera 布雷拉區用餐</div><div class="tl-note">第一晚早點回，時差還沒調好</div></div>
         </div>
       </div>
-    </div>
-
-    <!-- Day 6 -->
-    <div class="day-card">
-      <div class="day-label">
-        <div class="day-num">D6</div>
-        <div class="day-date">9/30</div>
-        <div class="day-week">三</div>
-      </div>
-      <div class="day-content">
-        <div class="day-theme">威尼斯 Day 3</div>
-        <div class="day-title">🎨 多爾索杜羅 + 慢旅行</div>
-        <div class="schedule">
-          <div class="schedule-item">
-            <div class="schedule-time">上午</div>
-            <div class="schedule-body">
-              <div class="schedule-spot">🖼️ Dorsoduro 多爾索杜羅區</div>
-              <div class="schedule-note">Peggy Guggenheim → 安康聖母教堂（Santa Maria della Salute）</div>
-            </div>
-          </div>
-          <div class="schedule-item">
-            <div class="schedule-time">中午</div>
-            <div class="schedule-body">
-              <div class="schedule-spot">☕ Zattere 海濱散步 + 午餐</div>
-            </div>
-          </div>
-          <div class="schedule-item">
-            <div class="schedule-time">下午</div>
-            <div class="schedule-body">
-              <div class="schedule-spot">自由選擇</div>
-              <div class="schedule-note">A. 布拉諾彩色島（來回約 3–4 小時）｜B. Rialto 市場 + 購物｜C. 美術館</div>
-            </div>
-          </div>
-          <div class="schedule-item">
-            <div class="schedule-time">晚上</div>
-            <div class="schedule-body">
-              <div class="schedule-spot">🌙 威尼斯最後一晚：聖馬可夜景</div>
-              <div class="schedule-note">晚上人少很多，非常有氣氛</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</div>
-
-<!-- FLORENCE -->
-<div id="florence">
-  <div class="city-header florence">
-    <div class="city-emoji">🌸</div>
-    <div class="city-info">
-      <h2>佛羅倫斯 Firenze</h2>
-      <p>10/1（四）— 10/5（一）· 4 晚</p>
-      <div class="city-hotel">🏨 佛羅倫斯MH水療飯店 → 阿特米德旅館｜SMN 車站周邊</div>
     </div>
   </div>
-  <div class="day-cards">
 
-    <!-- Day 7 -->
-    <div class="day-card">
-      <div class="day-label">
-        <div class="day-num">D7</div>
-        <div class="day-date">10/1</div>
-        <div class="day-week">四</div>
+  <!-- Day 3: 大教堂 + 精品街 -->
+  <div class="day-section reverse">
+    <div class="day-image-wrap">
+      <div class="day-image" style="background-image:url('https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?auto=format&fit=crop&w=900&q=80')"></div>
+      <div class="day-image-overlay"></div>
+      <div class="day-image-label">埃馬努埃萊二世拱廊 · 米蘭</div>
+    </div>
+    <div class="day-content-wrap">
+      <div class="day-eyebrow">
+        <span class="day-num-badge">Day 3 · 9/27 日</span>
+        <span class="day-date-str">米蘭精華一日</span>
       </div>
-      <div class="day-content">
-        <div class="day-theme">移動日</div>
-        <div class="day-title">🚄 威尼斯 → 佛羅倫斯 + 烏菲茲 + 老橋日落</div>
-        <div class="schedule">
-          <div class="schedule-item">
-            <div class="schedule-time">10:00</div>
-            <div class="schedule-body">
-              <div class="schedule-spot">搭高鐵出發</div>
-              <div class="schedule-note">Venezia Santa Lucia → Firenze SMN（約 2 小時）</div>
-            </div>
-          </div>
-          <div class="schedule-item">
-            <div class="schedule-time">12:00</div>
-            <div class="schedule-body">
-              <div class="schedule-spot">抵達佛羅倫斯 + 寄放行李 + 午餐</div>
-            </div>
-          </div>
-          <div class="schedule-item">
-            <div class="schedule-time">15:00</div>
-            <div class="schedule-body">
-              <div class="schedule-spot">🖼️ 烏菲茲美術館 Uffizi Gallery</div>
-              <div class="schedule-note">達文西、米開朗基羅、波提切利｜⚠️ 需提前預約</div>
-            </div>
-          </div>
-          <div class="schedule-item">
-            <div class="schedule-time">17:30</div>
-            <div class="schedule-body">
-              <div class="schedule-spot">🌅 老橋日落（日落 18:56）</div>
-              <div class="schedule-note">最佳拍攝點：聖三一橋 Ponte Santa Trinita（可拍到老橋輪廓）</div>
-            </div>
-          </div>
-          <div class="schedule-item">
-            <div class="schedule-time">晚餐</div>
-            <div class="schedule-body">
-              <div class="schedule-spot">佛羅倫斯牛排 Bistecca alla Fiorentina</div>
-            </div>
-          </div>
+      <h3 class="day-title">哥德式尖頂、<br>拱廊金光與時尚街道</h3>
+      <p class="day-narrative">今天是完整的米蘭日。從大教堂屋頂俯瞰這座城市，再穿過金碧輝煌的拱廊，走進歐洲最奢華的精品街區，最後在 Navigli 運河旁喝一杯 Aperitivo 結束這天。</p>
+      <div class="day-timeline">
+        <div class="tl-item">
+          <div class="tl-dot-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div>
+          <div class="tl-time">09:00</div>
+          <div><div class="tl-spot">🕍 米蘭大教堂 + 屋頂</div><div class="tl-note">Duomo Pass Lift｜站在哥德式尖頂間俯瞰米蘭</div></div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div>
+          <div class="tl-time">11:00</div>
+          <div><div class="tl-spot">🏛 埃馬努埃萊二世拱廊 → 史卡拉歌劇院</div><div class="tl-note">世界最美拱廊購物中心，光線從玻璃穹頂灑落</div></div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div>
+          <div class="tl-time">14:00</div>
+          <div><div class="tl-spot">💎 蒙特拿破崙大街精品區</div><div class="tl-note">梵克雅寶 Van Cleef & Arpels · Via Montenapoleone · Via della Spiga</div></div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot-wrap"><div class="tl-dot"></div></div>
+          <div class="tl-time">傍晚</div>
+          <div><div class="tl-spot">🌊 Navigli 運河夜晚</div><div class="tl-note">散步、Aperitivo 開胃酒、河岸晚餐</div></div>
         </div>
       </div>
-    </div>
-
-    <!-- Day 8 -->
-    <div class="day-card">
-      <div class="day-label">
-        <div class="day-num">D8</div>
-        <div class="day-date">10/2</div>
-        <div class="day-week">五</div>
-      </div>
-      <div class="day-content">
-        <div class="day-theme">佛羅倫斯 Day 2</div>
-        <div class="day-title">🗿 新聖母 + 中央市場 + 大衛像</div>
-        <div class="schedule">
-          <div class="schedule-item">
-            <div class="schedule-time">上午</div>
-            <div class="schedule-body">
-              <div class="schedule-spot">⛪ 新聖母教堂 Santa Maria Novella</div>
-              <div class="schedule-note">就在飯店旁，很順路</div>
-            </div>
-          </div>
-          <div class="schedule-item">
-            <div class="schedule-time">中午</div>
-            <div class="schedule-body">
-              <div class="schedule-spot">🏛️ 聖老楞佐大殿 → 中央市場午餐</div>
-              <div class="schedule-note">Mercato Centrale 很適合彈性吃飯</div>
-            </div>
-          </div>
-          <div class="schedule-item">
-            <div class="schedule-time">15:00</div>
-            <div class="schedule-body">
-              <div class="schedule-spot">🗿 學院美術館（大衛像）Accademia</div>
-              <div class="schedule-note">開放 08:15–18:50，最後入場 18:20｜⚠️ 需提前預約</div>
-            </div>
-          </div>
-          <div class="schedule-item">
-            <div class="schedule-time">傍晚</div>
-            <div class="schedule-body">
-              <div class="schedule-spot">聖馬可區散步 + 咖啡休息</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Day 9 -->
-    <div class="day-card">
-      <div class="day-label">
-        <div class="day-num">D9</div>
-        <div class="day-date">10/3</div>
-        <div class="day-week">六</div>
-      </div>
-      <div class="day-content">
-        <div class="day-theme">佛羅倫斯 Day 3</div>
-        <div class="day-title">🔔 百花聖殿 + 領主廣場 + 米開朗基羅廣場夕陽</div>
-        <div class="schedule">
-          <div class="schedule-item">
-            <div class="schedule-time">上午</div>
-            <div class="schedule-body">
-              <div class="schedule-spot">🌺 聖母百花聖殿 Santa Maria del Fiore</div>
-              <div class="schedule-note">登穹頂或鐘樓需提前預約（二選一）</div>
-            </div>
-          </div>
-          <div class="schedule-item">
-            <div class="schedule-time">中午</div>
-            <div class="schedule-body">
-              <div class="schedule-spot">共和廣場散步 + 午餐</div>
-            </div>
-          </div>
-          <div class="schedule-item">
-            <div class="schedule-time">14:00</div>
-            <div class="schedule-body">
-              <div class="schedule-spot">🗽 野豬噴泉 → 領主廣場 → 舊宮 → 傭兵涼廊</div>
-            </div>
-          </div>
-          <div class="schedule-item">
-            <div class="schedule-time">17:00</div>
-            <div class="schedule-body">
-              <div class="schedule-spot">🌅 米開朗基羅廣場 Piazzale Michelangelo</div>
-              <div class="schedule-note">佛羅倫斯最經典夕陽點｜日落前 45–60 分鐘抵達</div>
-            </div>
-          </div>
-        </div>
-        <div class="tip-box">⭐ 米開朗基羅廣場是佛羅倫斯必去夕陽點，不要錯過！</div>
-      </div>
-    </div>
-
-    <!-- Day 10 -->
-    <div class="day-card">
-      <div class="day-label">
-        <div class="day-num">D10</div>
-        <div class="day-date">10/4</div>
-        <div class="day-week">日</div>
-      </div>
-      <div class="day-content">
-        <div class="day-theme">自由日</div>
-        <div class="day-title">✨ FREE 彈性補強日</div>
-        <div class="schedule">
-          <div class="schedule-item">
-            <div class="schedule-time">方案 A</div>
-            <div class="schedule-body">
-              <div class="schedule-spot">🚌 托斯卡尼一日遊</div>
-              <div class="schedule-note">比薩斜塔 / 錫耶納 Siena / 聖吉米尼亞諾</div>
-            </div>
-          </div>
-          <div class="schedule-item">
-            <div class="schedule-time">方案 B</div>
-            <div class="schedule-body">
-              <div class="schedule-spot">🌿 Oltrarno 慢活</div>
-              <div class="schedule-note">波波里花園 → 彼提宮 → Oltrarno 區散步</div>
-            </div>
-          </div>
-          <div class="schedule-item">
-            <div class="schedule-time">方案 C</div>
-            <div class="schedule-body">
-              <div class="schedule-spot">🛍️ 購物日</div>
-              <div class="schedule-note">The Mall Firenze Outlet / 皮件店 / Santa Maria Novella 藥妝香氛店</div>
-            </div>
-          </div>
-        </div>
-        <div class="tip-box">💡 推薦方案 B（Oltrarno 慢走），後面羅馬已有 Outlet 行程。</div>
-      </div>
-    </div>
-
-  </div>
-</div>
-
-<!-- ROME -->
-<div id="rome">
-  <div class="city-header rome">
-    <div class="city-emoji">🏟️</div>
-    <div class="city-info">
-      <h2>羅馬 Roma</h2>
-      <p>10/5（一）— 10/10（六）· 5 晚</p>
-      <div class="city-hotel">🏨 馬焦雷聖瑪麗住宿加早餐旅館｜Via Santa Prassede 8</div>
+      <div class="day-tip tip">☕ 加碼：星巴克臻選烘焙工坊 · Piazza Cordusio — 米蘭旗艦店，空間設計值得一看</div>
     </div>
   </div>
-  <div class="day-cards">
 
-    <!-- Day 11 -->
-    <div class="day-card">
-      <div class="day-label">
-        <div class="day-num">D11</div>
-        <div class="day-date">10/5</div>
-        <div class="day-week">一</div>
-      </div>
-      <div class="day-content">
-        <div class="day-theme">移動日</div>
-        <div class="day-title">🚄 佛羅倫斯 → 羅馬 + 摩西像 + 聖母大殿</div>
-        <div class="schedule">
-          <div class="schedule-item">
-            <div class="schedule-time">10:30</div>
-            <div class="schedule-body">
-              <div class="schedule-spot">搭高鐵出發</div>
-              <div class="schedule-note">Firenze SMN → Roma Termini（約 1.5 小時）</div>
-            </div>
-          </div>
-          <div class="schedule-item">
-            <div class="schedule-time">中午</div>
-            <div class="schedule-body">
-              <div class="schedule-spot">入住 + 午餐</div>
-              <div class="schedule-note">飯店就在聖母大殿旁，Termini 到飯店非常方便</div>
-            </div>
-          </div>
-          <div class="schedule-item">
-            <div class="schedule-time">下午</div>
-            <div class="schedule-body">
-              <div class="schedule-spot">⛓️ 摩西像 San Pietro in Vincoli</div>
-              <div class="schedule-note">米開朗基羅作品，非常值得</div>
-            </div>
-          </div>
-          <div class="schedule-item">
-            <div class="schedule-time">傍晚</div>
-            <div class="schedule-body">
-              <div class="schedule-spot">🕍 聖母大殿 Basilica di Santa Maria Maggiore</div>
-              <div class="schedule-note">就在飯店附近，輕鬆走過去</div>
-            </div>
-          </div>
-          <div class="schedule-item">
-            <div class="schedule-time">晚餐</div>
-            <div class="schedule-body">
-              <div class="schedule-spot">🍷 Monti 區晚餐</div>
-              <div class="schedule-note">離住處近，氣氛很好的老羅馬區</div>
-            </div>
-          </div>
-        </div>
-      </div>
+</section>
+
+<!-- ══════════════════ VENICE ══════════════════ -->
+<section class="city-block" id="venice">
+
+  <div class="city-hero">
+    <div class="city-hero-img" style="background-image:url('https://images.unsplash.com/photo-1534430480872-3498386e7856?auto=format&fit=crop&w=1800&q=85')"></div>
+    <div class="city-hero-overlay"></div>
+    <div class="city-hero-content">
+      <span class="city-tag">🔵 City 02</span>
+      <h2 class="city-hero-name">Venezia</h2>
+      <p class="city-hero-sub">9/28（一）— 10/1（四）· 3 晚 · 水上迷宮</p>
+      <p class="city-hero-hotel">🏨 <strong>Hotel Rio</strong>｜Campo SS. Filippo e Giacomo, Castello — 近聖馬可，本島核心</p>
     </div>
-
-    <!-- Day 12 -->
-    <div class="day-card">
-      <div class="day-label">
-        <div class="day-num">D12</div>
-        <div class="day-date">10/6</div>
-        <div class="day-week">二</div>
-      </div>
-      <div class="day-content">
-        <div class="day-theme">羅馬 Day 2</div>
-        <div class="day-title">⛪ 梵蒂岡整日</div>
-        <div class="schedule">
-          <div class="schedule-item">
-            <div class="schedule-time">08:30</div>
-            <div class="schedule-body">
-              <div class="schedule-spot">🏛️ 梵蒂岡博物館 Vatican Museums</div>
-              <div class="schedule-note">西斯汀禮拜堂、拉斐爾房間、螺旋樓梯、地圖廊｜⚠️ 需提前預約</div>
-            </div>
-          </div>
-          <div class="schedule-item">
-            <div class="schedule-time">中午</div>
-            <div class="schedule-body">
-              <div class="schedule-spot">Prati 區午餐</div>
-              <div class="schedule-note">稍微遠離聖彼得廣場，品質比較穩</div>
-            </div>
-          </div>
-          <div class="schedule-item">
-            <div class="schedule-time">14:00</div>
-            <div class="schedule-body">
-              <div class="schedule-spot">🕊️ 聖伯多祿大殿 St. Peter's Basilica</div>
-              <div class="schedule-note">「聖殤像」+ 登頂俯瞰羅馬（視排隊狀況決定）</div>
-            </div>
-          </div>
-          <div class="schedule-item">
-            <div class="schedule-time">傍晚</div>
-            <div class="schedule-body">
-              <div class="schedule-spot">🏰 聖天使城堡 Castel Sant'Angelo</div>
-              <div class="schedule-note">外觀 + 橋上拍照為主；入內需另留時間</div>
-            </div>
-          </div>
-          <div class="schedule-item">
-            <div class="schedule-time">晚餐</div>
-            <div class="schedule-body">
-              <div class="schedule-spot">Prati 區晚餐</div>
-            </div>
-          </div>
-        </div>
-        <div class="warn-box">⚠️ 梵蒂岡博物館旺季人潮大，務必排早上 08:30 以前入場</div>
-      </div>
-    </div>
-
-    <!-- Day 13 -->
-    <div class="day-card">
-      <div class="day-label">
-        <div class="day-num">D13</div>
-        <div class="day-date">10/7</div>
-        <div class="day-week">三</div>
-      </div>
-      <div class="day-content">
-        <div class="day-theme">羅馬 Day 3</div>
-        <div class="day-title">⛲ 西班牙階梯 + 噴泉 + 萬神殿 + 納沃納</div>
-        <div class="schedule">
-          <div class="schedule-item">
-            <div class="schedule-time">早上</div>
-            <div class="schedule-body">
-              <div class="schedule-spot">🪜 西班牙階梯 Spanish Steps</div>
-              <div class="schedule-note">早去人少，方便拍照</div>
-            </div>
-          </div>
-          <div class="schedule-item">
-            <div class="schedule-time">10:00</div>
-            <div class="schedule-body">
-              <div class="schedule-spot">💦 特雷維噴泉 Trevi Fountain</div>
-              <div class="schedule-note">丟硬幣許願｜早上去比下午好</div>
-            </div>
-          </div>
-          <div class="schedule-item">
-            <div class="schedule-time">中午</div>
-            <div class="schedule-body">
-              <div class="schedule-spot">⭕ 萬神殿 Pantheon + 周邊午餐</div>
-            </div>
-          </div>
-          <div class="schedule-item">
-            <div class="schedule-time">下午</div>
-            <div class="schedule-body">
-              <div class="schedule-spot">🌊 納沃納廣場 Piazza Navona</div>
-              <div class="schedule-note">四河噴泉（貝尼尼設計）→ Campo de' Fiori → 台伯河散步</div>
-            </div>
-          </div>
-          <div class="schedule-item">
-            <div class="schedule-time">晚餐</div>
-            <div class="schedule-body">
-              <div class="schedule-spot">🌙 Trastevere 晚餐</div>
-              <div class="schedule-note">羅馬夜生活感最強的區域</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Day 14 -->
-    <div class="day-card">
-      <div class="day-label">
-        <div class="day-num">D14</div>
-        <div class="day-date">10/8</div>
-        <div class="day-week">四</div>
-      </div>
-      <div class="day-content">
-        <div class="day-theme">羅馬 Day 4</div>
-        <div class="day-title">🏟️ 競技場 + 古羅馬廣場 + 真理之口</div>
-        <div class="schedule">
-          <div class="schedule-item">
-            <div class="schedule-time">08:30</div>
-            <div class="schedule-body">
-              <div class="schedule-spot">🏟️ 羅馬競技場 Colosseum</div>
-              <div class="schedule-note">2026/10 開放至 18:30，最後入場 17:30｜⚠️ 需提前預約，只從官網購票</div>
-            </div>
-          </div>
-          <div class="schedule-item">
-            <div class="schedule-time">10:30</div>
-            <div class="schedule-body">
-              <div class="schedule-spot">🏛️ 古羅馬廣場 + 帕拉提諾山</div>
-              <div class="schedule-note">通常與競技場一票入場，早上遮蔭少，建議早去</div>
-            </div>
-          </div>
-          <div class="schedule-item">
-            <div class="schedule-time">中午</div>
-            <div class="schedule-body">
-              <div class="schedule-spot">Monti 午餐</div>
-              <div class="schedule-note">避免在競技場正門旁邊隨便吃</div>
-            </div>
-          </div>
-          <div class="schedule-item">
-            <div class="schedule-time">14:30</div>
-            <div class="schedule-body">
-              <div class="schedule-spot">😮 真理之口 → 馬爾切洛劇場 → 卡比托利歐廣場 → 威尼斯廣場</div>
-            </div>
-          </div>
-          <div class="schedule-item">
-            <div class="schedule-time">晚上</div>
-            <div class="schedule-body">
-              <div class="schedule-spot">🌙 特雷維噴泉夜景</div>
-              <div class="schedule-note">白天與晚上感覺完全不同，值得再去一次</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Day 15 -->
-    <div class="day-card">
-      <div class="day-label">
-        <div class="day-num">D15</div>
-        <div class="day-date">10/9</div>
-        <div class="day-week">五</div>
-      </div>
-      <div class="day-content">
-        <div class="day-theme">購物日</div>
-        <div class="day-title">🛍️ Castel Romano Designer Outlet</div>
-        <div class="schedule">
-          <div class="schedule-item">
-            <div class="schedule-time">09:30</div>
-            <div class="schedule-body">
-              <div class="schedule-spot">搭接駁車出發</div>
-              <div class="schedule-note">Termini Via Giolitti 48｜去程班次：09:30 / 10:30 / 11:30</div>
-            </div>
-          </div>
-          <div class="schedule-item">
-            <div class="schedule-time">整天</div>
-            <div class="schedule-body">
-              <div class="schedule-spot">Shopping Village Castel Romano</div>
-              <div class="schedule-note">回程班次：16:30 / 17:30 / 19:00</div>
-            </div>
-          </div>
-        </div>
-        <div class="tip-box">💡 購物提醒：備好護照影本｜問 Tax Refund 門檻｜先查台灣售價比較｜行李箱留空間</div>
-        <div class="warn-box">⚠️ 明天 05:00 出門搭機，今晚要早點整理行李、早點睡</div>
-      </div>
-    </div>
-
-    <!-- Day 16 -->
-    <div class="day-card">
-      <div class="day-label">
-        <div class="day-num">D16</div>
-        <div class="day-date">10/10</div>
-        <div class="day-week">六</div>
-      </div>
-      <div class="day-content">
-        <div class="day-theme">返程日</div>
-        <div class="day-title">✈️ 羅馬 → 慕尼黑 → 台北</div>
-        <div class="schedule">
-          <div class="schedule-item">
-            <div class="schedule-time">05:00</div>
-            <div class="schedule-body">
-              <div class="schedule-spot">前往 Fiumicino 機場</div>
-              <div class="schedule-note">建議前一晚請飯店預約計程車，清晨不建議拖大行李轉大眾運輸</div>
-            </div>
-          </div>
-          <div class="schedule-item">
-            <div class="schedule-time">08:35</div>
-            <div class="schedule-body">
-              <div class="schedule-spot">✈️ 羅馬 → 慕尼黑 T2</div>
-              <div class="schedule-note">抵達 10:00｜確認行李是否直掛台北</div>
-            </div>
-          </div>
-          <div class="schedule-item">
-            <div class="schedule-time">12:00</div>
-            <div class="schedule-body">
-              <div class="schedule-spot">✈️ 慕尼黑 T2 → 台北 T2</div>
-              <div class="schedule-note">隔天 10/11 06:35 抵達</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Day 17 -->
-    <div class="day-card">
-      <div class="day-label">
-        <div class="day-num">D17</div>
-        <div class="day-date">10/11</div>
-        <div class="day-week">日</div>
-      </div>
-      <div class="day-content">
-        <div class="day-theme">回家</div>
-        <div class="day-title">🏠 抵達台北 · 回台中</div>
-        <div class="schedule">
-          <div class="schedule-item">
-            <div class="schedule-time">06:35</div>
-            <div class="schedule-body">
-              <div class="schedule-spot">抵達台北 T2</div>
-              <div class="schedule-note">入境 → 搭車回台中</div>
-            </div>
-          </div>
-          <div class="schedule-item">
-            <div class="schedule-time">回家後</div>
-            <div class="schedule-body">
-              <div class="schedule-spot">🧾 退稅單據整理 · 信用卡消費核對 · 照片備份</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
   </div>
-</div>
 
-<!-- SUMMARY -->
-<div class="section" id="summary">
-  <h2 class="section-title">📊 每日主題總覽</h2>
-  <div style="overflow-x:auto;">
-  <table class="summary-table">
-    <tr>
-      <th>日期</th><th>星期</th><th>城市</th><th>主題</th>
-    </tr>
-    <tr><td>9/25</td><td>五</td><td><span class="city-dot" style="background:#888"></span>飛機</td><td>🛫 台北出發 BR 0095</td></tr>
-    <tr><td>9/26</td><td>六</td><td><span class="city-dot" style="background:var(--milan)"></span>米蘭</td><td>🎨 最後的晚餐 + 斯福爾扎古堡</td></tr>
-    <tr><td>9/27</td><td>日</td><td><span class="city-dot" style="background:var(--milan)"></span>米蘭</td><td>⛪ 大教堂 + 拱廊 + 精品街 + Navigli</td></tr>
-    <tr><td>9/28</td><td>一</td><td><span class="city-dot" style="background:var(--venice)"></span>威尼斯</td><td>🚄 移動 + San Polo + 里阿爾托橋</td></tr>
-    <tr><td>9/29</td><td>二</td><td><span class="city-dot" style="background:var(--venice)"></span>威尼斯</td><td>🦁 聖馬可廣場 + 學院橋</td></tr>
-    <tr><td>9/30</td><td>三</td><td><span class="city-dot" style="background:var(--venice)"></span>威尼斯</td><td>🎨 多爾索杜羅 + Zattere 慢旅行</td></tr>
-    <tr><td>10/1</td><td>四</td><td><span class="city-dot" style="background:var(--florence)"></span>佛羅倫斯</td><td>🚄 移動 + 烏菲茲 + 老橋日落</td></tr>
-    <tr><td>10/2</td><td>五</td><td><span class="city-dot" style="background:var(--florence)"></span>佛羅倫斯</td><td>🗿 新聖母 + 中央市場 + 大衛像</td></tr>
-    <tr><td>10/3</td><td>六</td><td><span class="city-dot" style="background:var(--florence)"></span>佛羅倫斯</td><td>🌺 百花聖殿 + 領主廣場 + 米開朗基羅廣場夕陽</td></tr>
-    <tr><td>10/4</td><td>日</td><td><span class="city-dot" style="background:var(--florence)"></span>佛羅倫斯</td><td>✨ FREE 自由日</td></tr>
-    <tr><td>10/5</td><td>一</td><td><span class="city-dot" style="background:var(--rome)"></span>羅馬</td><td>🚄 移動 + 摩西像 + 聖母大殿</td></tr>
-    <tr><td>10/6</td><td>二</td><td><span class="city-dot" style="background:var(--rome)"></span>羅馬</td><td>⛪ 梵蒂岡整日</td></tr>
-    <tr><td>10/7</td><td>三</td><td><span class="city-dot" style="background:var(--rome)"></span>羅馬</td><td>⛲ 西班牙階梯 + 特雷維噴泉 + 萬神殿 + 納沃納</td></tr>
-    <tr><td>10/8</td><td>四</td><td><span class="city-dot" style="background:var(--rome)"></span>羅馬</td><td>🏟️ 競技場 + 古羅馬廣場 + 真理之口</td></tr>
-    <tr><td>10/9</td><td>五</td><td><span class="city-dot" style="background:var(--rome)"></span>羅馬</td><td>🛍️ Castel Romano Outlet</td></tr>
-    <tr><td>10/10</td><td>六</td><td><span class="city-dot" style="background:#888"></span>返程</td><td>✈️ 羅馬 → 慕尼黑 → 台北</td></tr>
-    <tr><td>10/11</td><td>日</td><td><span class="city-dot" style="background:#888"></span>台北</td><td>🏠 抵達 · 回台中</td></tr>
-  </table>
+  <!-- Day 4: 移動 + Rialto -->
+  <div class="day-section">
+    <div class="day-image-wrap">
+      <div class="day-image" style="background-image:url('https://images.unsplash.com/photo-1467269204594-9661b134dd2b?auto=format&fit=crop&w=900&q=80')"></div>
+      <div class="day-image-overlay"></div>
+      <div class="day-image-label">里阿爾托橋 · 威尼斯</div>
+    </div>
+    <div class="day-content-wrap">
+      <div class="day-eyebrow">
+        <span class="day-num-badge">Day 4 · 9/28 一</span>
+        <span class="day-date-str">米蘭 → 威尼斯</span>
+      </div>
+      <h3 class="day-title">高鐵入城，<br>第一次踩上石板路</h3>
+      <p class="day-narrative">從米蘭搭高鐵到威尼斯聖路西亞車站，2 小時 30 分。出站的那一刻，沒有汽車、沒有摩托車，只有運河和腳步聲。今天的任務是熟悉這座城市的節奏。</p>
+      <div class="day-timeline">
+        <div class="tl-item">
+          <div class="tl-dot-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div>
+          <div class="tl-time">10:30</div>
+          <div><div class="tl-spot">搭高鐵出發 Milano → Venezia S.L.</div><div class="tl-note">約 2.5 小時</div></div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div>
+          <div class="tl-time">13:00</div>
+          <div><div class="tl-spot">購買 ACTV 72 小時交通卡</div><div class="tl-note">€45，車站旁售票處購買，搭水上巴士前往飯店</div></div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div>
+          <div class="tl-time">下午</div>
+          <div><div class="tl-spot">🌉 里阿爾托橋 · San Polo 小巷漫步</div><div class="tl-note">不用趕，讓自己迷路，這才是威尼斯</div></div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot-wrap"><div class="tl-dot"></div></div>
+          <div class="tl-time">晚餐</div>
+          <div><div class="tl-spot">威尼斯小酒館 Osteria</div><div class="tl-note">墨魚麵（Spaghetti al nero di seppia）· Cicchetti 小點 · 白葡萄酒</div></div>
+        </div>
+      </div>
+    </div>
   </div>
-</div>
 
-</div><!-- /container -->
+  <!-- Day 5: 聖馬可 -->
+  <div class="day-section reverse">
+    <div class="day-image-wrap">
+      <div class="day-image" style="background-image:url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=900&q=80')"></div>
+      <div class="day-image-overlay"></div>
+      <div class="day-image-label">聖馬可廣場 · 威尼斯</div>
+    </div>
+    <div class="day-content-wrap">
+      <div class="day-eyebrow">
+        <span class="day-num-badge">Day 5 · 9/29 二</span>
+        <span class="day-date-str">威尼斯核心</span>
+      </div>
+      <h3 class="day-title">廣場、大教堂、<br>嘆息橋與學院橋</h3>
+      <p class="day-narrative">早上 8 點前抵達聖馬可廣場，此時遊客還少，光線最美。用整個上午把這裡的地標走完，下午從鳳凰劇院慢慢散步到學院橋，傍晚坐上貢多拉，感受這座城市最奢侈的一面。</p>
+      <div class="day-timeline">
+        <div class="tl-item">
+          <div class="tl-dot-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div>
+          <div class="tl-time">08:00</div>
+          <div><div class="tl-spot">🦁 聖馬可廣場 · 大教堂 · 鐘樓</div><div class="tl-note">早去人少，光線最好｜總督宮 + 嘆息橋建議提前預約</div></div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div>
+          <div class="tl-time">下午</div>
+          <div><div class="tl-spot">🎭 鳳凰劇院外觀 → 學院橋</div><div class="tl-note">站在學院橋上，是大運河最美的取景框</div></div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot-wrap"><div class="tl-dot"></div></div>
+          <div class="tl-time">傍晚</div>
+          <div><div class="tl-spot">🛶 貢多拉或 Vaporetto 1 號線</div><div class="tl-note">傍晚光線最美｜省預算可搭水上巴士看大運河沿岸</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Day 6: Dorsoduro -->
+  <div class="day-section">
+    <div class="day-image-wrap">
+      <div class="day-image" style="background-image:url('https://images.unsplash.com/photo-1587974928442-77dc3e0dba72?auto=format&fit=crop&w=900&q=80')"></div>
+      <div class="day-image-overlay"></div>
+      <div class="day-image-label">多爾索杜羅區 · 威尼斯</div>
+    </div>
+    <div class="day-content-wrap">
+      <div class="day-eyebrow">
+        <span class="day-num-badge">Day 6 · 9/30 三</span>
+        <span class="day-date-str">威尼斯慢旅行</span>
+      </div>
+      <h3 class="day-title">沿著運河走進<br>Dorsoduro 的慢時光</h3>
+      <p class="day-narrative">多爾索杜羅是威尼斯最有藝術氣息的街區，少了遊客的喧囂，多了畫廊和靜謐的小廣場。今天不趕，Zattere 海濱吃午餐，讓陽光曬進來。</p>
+      <div class="day-timeline">
+        <div class="tl-item">
+          <div class="tl-dot-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div>
+          <div class="tl-time">上午</div>
+          <div><div class="tl-spot">🖼 Peggy Guggenheim 美術館</div><div class="tl-note">現代藝術收藏，面向大運河的露台是絕景</div></div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div>
+          <div class="tl-time">中午</div>
+          <div><div class="tl-spot">☀️ Zattere 海濱午餐</div><div class="tl-note">面向朱代卡島的寬廣海濱，最適合曬太陽喝咖啡</div></div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div>
+          <div class="tl-time">下午</div>
+          <div><div class="tl-spot">⛪ 安康聖母教堂外觀</div><div class="tl-note">巴洛克圓頂，是大運河最美的終點背景</div></div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot-wrap"><div class="tl-dot"></div></div>
+          <div class="tl-time">晚上</div>
+          <div><div class="tl-spot">🌙 威尼斯最後一晚：聖馬可夜景</div><div class="tl-note">晚上的聖馬可廣場燈光下非常有氣氛，人少很多</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<!-- ══════════════════ FLORENCE ══════════════════ -->
+<section class="city-block" id="florence">
+
+  <div class="city-hero">
+    <div class="city-hero-img" style="background-image:url('https://images.unsplash.com/photo-1543429258-340b897bfb40?auto=format&fit=crop&w=1800&q=85')"></div>
+    <div class="city-hero-overlay"></div>
+    <div class="city-hero-content">
+      <span class="city-tag">🟠 City 03</span>
+      <h2 class="city-hero-name">Firenze</h2>
+      <p class="city-hero-sub">10/1（四）— 10/5（一）· 4 晚 · 文藝復興之都</p>
+      <p class="city-hero-hotel">🏨 <strong>佛羅倫斯 MH 水療飯店</strong> → <strong>阿特米德旅館</strong>｜SMN 車站周邊，移動超方便</p>
+    </div>
+  </div>
+
+  <!-- Day 7: 移動 + 烏菲茲 + 老橋 -->
+  <div class="day-section">
+    <div class="day-image-wrap">
+      <div class="day-image" style="background-image:url('https://images.unsplash.com/photo-1515542622106-78bda8ba0e5b?auto=format&fit=crop&w=900&q=80')"></div>
+      <div class="day-image-overlay"></div>
+      <div class="day-image-label">老橋日落 · 佛羅倫斯</div>
+    </div>
+    <div class="day-content-wrap">
+      <div class="day-eyebrow">
+        <span class="day-num-badge">Day 7 · 10/1 四</span>
+        <span class="day-date-str">威尼斯 → 佛羅倫斯</span>
+      </div>
+      <h3 class="day-title">烏菲茲的巨作，<br>日落在老橋燃燒</h3>
+      <p class="day-narrative">今天下午進烏菲茲，看波提切利的《維納斯的誕生》，再走到老橋。請記住這個時間：18:56 日落。站在聖三一橋上，用老橋的弧線框住夕陽，這是佛羅倫斯送給你的第一份禮物。</p>
+      <div class="day-timeline">
+        <div class="tl-item">
+          <div class="tl-dot-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div>
+          <div class="tl-time">10:00</div>
+          <div><div class="tl-spot">高鐵出發 Venezia → Firenze SMN</div><div class="tl-note">約 2 小時，下車即入住飯店，位置超方便</div></div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div>
+          <div class="tl-time">15:00</div>
+          <div><div class="tl-spot">🖼 烏菲茲美術館 Uffizi Gallery</div><div class="tl-note">達文西 · 米開朗基羅 · 波提切利《維納斯的誕生》｜⚠ 需提前預約</div></div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot-wrap"><div class="tl-dot"></div></div>
+          <div class="tl-time">17:30</div>
+          <div><div class="tl-spot">🌅 老橋日落（日落 18:56）</div><div class="tl-note">最佳拍攝點：聖三一橋 Ponte Santa Trinita，可拍到老橋完整輪廓</div></div>
+        </div>
+      </div>
+      <div class="day-tip highlight">⭐ 老橋上的金飾店從中世紀就在了，傍晚的燈光下每一間都像珠寶盒</div>
+    </div>
+  </div>
+
+  <!-- Day 8: 大衛像 -->
+  <div class="day-section reverse">
+    <div class="day-image-wrap">
+      <div class="day-image" style="background-image:url('https://images.unsplash.com/photo-1574782648963-f4fd7c9e4e37?auto=format&fit=crop&w=900&q=80')"></div>
+      <div class="day-image-overlay"></div>
+      <div class="day-image-label">學院美術館 · 佛羅倫斯</div>
+    </div>
+    <div class="day-content-wrap">
+      <div class="day-eyebrow">
+        <span class="day-num-badge">Day 8 · 10/2 五</span>
+        <span class="day-date-str">藝術與市場</span>
+      </div>
+      <h3 class="day-title">3.7 公尺的大衛，<br>比想像中更震撼</h3>
+      <p class="day-narrative">今天從新聖母教堂出發，走進中央市場吃午餐，下午去學院美術館站在大衛像腳下。沒有任何照片能傳達那個仰視的瞬間。米開朗基羅說：「雕像早就在石頭裡了，我只是把多餘的部分去掉。」</p>
+      <div class="day-timeline">
+        <div class="tl-item">
+          <div class="tl-dot-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div>
+          <div class="tl-time">上午</div>
+          <div><div class="tl-spot">⛪ 新聖母教堂 Santa Maria Novella</div><div class="tl-note">就在飯店旁，馬薩喬的透視壁畫是文藝復興的起點</div></div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div>
+          <div class="tl-time">中午</div>
+          <div><div class="tl-spot">🏛 聖老楞佐大殿 → 中央市場午餐</div><div class="tl-note">Mercato Centrale 樓上美食區，輕鬆隨意各種選擇</div></div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot-wrap"><div class="tl-dot"></div></div>
+          <div class="tl-time">15:00</div>
+          <div><div class="tl-spot">🗿 學院美術館（大衛像）</div><div class="tl-note">開放 08:15–18:50，最後入場 18:20｜⚠ 需提前預約</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Day 9: 百花聖殿 + 米開朗基羅廣場 -->
+  <div class="day-section">
+    <div class="day-image-wrap">
+      <div class="day-image" style="background-image:url('https://images.unsplash.com/photo-1580537659466-0a9bfa916a54?auto=format&fit=crop&w=900&q=80')"></div>
+      <div class="day-image-overlay"></div>
+      <div class="day-image-label">米開朗基羅廣場夕陽 · 佛羅倫斯</div>
+    </div>
+    <div class="day-content-wrap">
+      <div class="day-eyebrow">
+        <span class="day-num-badge">Day 9 · 10/3 六</span>
+        <span class="day-date-str">紅色圓頂與最美夕陽</span>
+      </div>
+      <h3 class="day-title">百花聖殿大圓頂，<br>傍晚站上米開朗基羅廣場</h3>
+      <p class="day-narrative">從百花聖殿的大紅圓頂出發，走過共和廣場、野豬噴泉、領主廣場，下午爬上阿諾河南岸的米開朗基羅廣場。這裡是整個行程中最值得等待夕陽的地方——整座橘紅色的佛羅倫斯攤在你眼前。</p>
+      <div class="day-timeline">
+        <div class="tl-item">
+          <div class="tl-dot-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div>
+          <div class="tl-time">上午</div>
+          <div><div class="tl-spot">🌺 聖母百花聖殿 + 洗禮堂</div><div class="tl-note">登穹頂或鐘樓需提前預約，二選一即可</div></div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div>
+          <div class="tl-time">中午</div>
+          <div><div class="tl-spot">共和廣場 → 野豬噴泉 → 領主廣場 → 舊宮 → 傭兵涼廊</div></div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot-wrap"><div class="tl-dot"></div></div>
+          <div class="tl-time">17:00</div>
+          <div><div class="tl-spot">🌅 米開朗基羅廣場 Piazzale Michelangelo</div><div class="tl-note">日落前 45–60 分鐘抵達，站好位置等光線變化</div></div>
+        </div>
+      </div>
+      <div class="day-tip highlight">⭐ 這是整個義大利行程最值得等待夕陽的地點，不要錯過！</div>
+    </div>
+  </div>
+
+  <!-- Day 10: Free -->
+  <div class="free-day">
+    <div class="free-day-left">
+      <h3>Free<br>Day</h3>
+      <p>10/4（日）· D10<br>佛羅倫斯自由日</p>
+    </div>
+    <div class="free-options">
+      <div class="free-option">
+        <div class="free-option-label">方案 A</div>
+        <h4>托斯卡尼小鎮</h4>
+        <p>比薩斜塔 · 錫耶納 · 聖吉米尼亞諾，鄉村風景一日散心</p>
+      </div>
+      <div class="free-option">
+        <div class="free-option-label">方案 B ⭐推薦</div>
+        <h4>Oltrarno 慢活</h4>
+        <p>波波里花園 · 彼提宮 · 阿諾河南岸老街區，最佛系的一天</p>
+      </div>
+      <div class="free-option">
+        <div class="free-option-label">方案 C</div>
+        <h4>購物日</h4>
+        <p>The Mall Firenze Outlet · 皮件店 · Santa Maria Novella 藥妝香氛</p>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<!-- ══════════════════ ROME ══════════════════ -->
+<section class="city-block" id="rome">
+
+  <div class="city-hero">
+    <div class="city-hero-img" style="background-image:url('https://images.unsplash.com/photo-1570168007204-dfb528c6958f?auto=format&fit=crop&w=1800&q=85')"></div>
+    <div class="city-hero-overlay"></div>
+    <div class="city-hero-content">
+      <span class="city-tag">🟡 City 04</span>
+      <h2 class="city-hero-name">Roma</h2>
+      <p class="city-hero-sub">10/5（一）— 10/10（六）· 5 晚 · 永恆之城</p>
+      <p class="city-hero-hotel">🏨 <strong>馬焦雷聖瑪麗住宿加早餐旅館</strong>｜Via Santa Prassede 8, Monti — 景點 + 車站都近</p>
+    </div>
+  </div>
+
+  <!-- Day 11: 移動 + 摩西像 -->
+  <div class="day-section">
+    <div class="day-image-wrap">
+      <div class="day-image" style="background-image:url('https://images.unsplash.com/photo-1531572753322-ad063cecc140?auto=format&fit=crop&w=900&q=80')"></div>
+      <div class="day-image-overlay"></div>
+      <div class="day-image-label">聖母大殿 · 羅馬</div>
+    </div>
+    <div class="day-content-wrap">
+      <div class="day-eyebrow">
+        <span class="day-num-badge">Day 11 · 10/5 一</span>
+        <span class="day-date-str">佛羅倫斯 → 羅馬</span>
+      </div>
+      <h3 class="day-title">高鐵入羅馬，<br>先見摩西像與聖母大殿</h3>
+      <p class="day-narrative">從佛羅倫斯到羅馬只需 1.5 小時。抵達後先放行李，下午去 San Pietro in Vincoli 看米開朗基羅的摩西像——這件作品不像大衛那麼出名，但它的憤怒表情和鬍鬚細節讓許多人說「比大衛更震撼」。</p>
+      <div class="day-timeline">
+        <div class="tl-item">
+          <div class="tl-dot-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div>
+          <div class="tl-time">10:30</div>
+          <div><div class="tl-spot">高鐵出發 Firenze → Roma Termini</div><div class="tl-note">約 1.5 小時，飯店就在 Termini 附近</div></div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div>
+          <div class="tl-time">下午</div>
+          <div><div class="tl-spot">⛓ 摩西像 San Pietro in Vincoli</div><div class="tl-note">米開朗基羅晚年之作，很多人說更震撼過大衛</div></div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot-wrap"><div class="tl-dot"></div></div>
+          <div class="tl-time">傍晚</div>
+          <div><div class="tl-spot">🕍 聖母大殿 Basilica di Santa Maria Maggiore</div><div class="tl-note">走路就到，就在飯店旁邊</div></div>
+        </div>
+      </div>
+      <div class="day-tip tip">💡 今晚在 Monti 區吃飯，是羅馬最有個性的街區，離住處也近</div>
+    </div>
+  </div>
+
+  <!-- Day 12: 梵蒂岡 -->
+  <div class="day-section reverse">
+    <div class="day-image-wrap">
+      <div class="day-image" style="background-image:url('https://images.unsplash.com/photo-1555992336-03a23c7b20ee?auto=format&fit=crop&w=900&q=80')"></div>
+      <div class="day-image-overlay"></div>
+      <div class="day-image-label">梵蒂岡 · 羅馬</div>
+    </div>
+    <div class="day-content-wrap">
+      <div class="day-eyebrow">
+        <span class="day-num-badge">Day 12 · 10/6 二</span>
+        <span class="day-date-str">梵蒂岡整日</span>
+      </div>
+      <h3 class="day-title">天花板上的神，<br>廣場上的萬人朝聖</h3>
+      <p class="day-narrative">西斯汀禮拜堂的天花板，米開朗基羅用了 4 年仰頭繪製。出了博物館，走進聖彼得廣場——貝尼尼設計的圓弧形柱廊像是兩條手臂，把全世界的人都攬進來。下午去聖天使城堡，傍晚在台伯河橋上看夕陽。</p>
+      <div class="day-timeline">
+        <div class="tl-item">
+          <div class="tl-dot-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div>
+          <div class="tl-time">08:30</div>
+          <div><div class="tl-spot">🏛 梵蒂岡博物館</div><div class="tl-note">西斯汀禮拜堂 · 拉斐爾房間 · 螺旋樓梯 · 地圖廊｜⚠ 需提前預約</div></div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div>
+          <div class="tl-time">13:00</div>
+          <div><div class="tl-spot">🕊 聖伯多祿大殿 St. Peter's Basilica</div><div class="tl-note">「聖殤像」· 登圓頂俯瞰羅馬（視排隊狀況）</div></div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot-wrap"><div class="tl-dot"></div></div>
+          <div class="tl-time">傍晚</div>
+          <div><div class="tl-spot">🏰 聖天使城堡 + 聖天使橋</div><div class="tl-note">貝尼尼設計的天使雕像 · 橋上拍台伯河夕景</div></div>
+        </div>
+      </div>
+      <div class="day-tip warn">⚠ 旺季博物館人潮極大，08:30 入場是最佳選擇</div>
+    </div>
+  </div>
+
+  <!-- Day 13: 噴泉廣場 -->
+  <div class="day-section">
+    <div class="day-image-wrap">
+      <div class="day-image" style="background-image:url('https://images.unsplash.com/photo-1529260830199-42c24126f198?auto=format&fit=crop&w=900&q=80')"></div>
+      <div class="day-image-overlay"></div>
+      <div class="day-image-label">特雷維噴泉 · 羅馬</div>
+    </div>
+    <div class="day-content-wrap">
+      <div class="day-eyebrow">
+        <span class="day-num-badge">Day 13 · 10/7 三</span>
+        <span class="day-date-str">噴泉 · 廣場 · 萬神殿</span>
+      </div>
+      <h3 class="day-title">丟一枚硬幣，<br>承諾再回羅馬</h3>
+      <p class="day-narrative">今天是一條很美的步行路線。早上去西班牙階梯，再走到特雷維噴泉——背對噴泉丟一枚硬幣，傳說你一定會再回來。萬神殿的圓頂中央有個 9 米的洞，陽光直射進來，把這座 2000 年前的空間打亮。晚上去 Trastevere，羅馬最有生命力的街區。</p>
+      <div class="day-timeline">
+        <div class="tl-item">
+          <div class="tl-dot-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div>
+          <div class="tl-time">早上</div>
+          <div><div class="tl-spot">🪜 西班牙階梯 · 特雷維噴泉</div><div class="tl-note">早去人少，適合拍照</div></div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div>
+          <div class="tl-time">中午</div>
+          <div><div class="tl-spot">⭕ 萬神殿 Pantheon + 周邊午餐</div><div class="tl-note">免費入場，圓洞光線在不同時段有不同角度</div></div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot-wrap"><div class="tl-dot"></div></div>
+          <div class="tl-time">下午</div>
+          <div><div class="tl-spot">🌊 納沃納廣場 → 台伯河 → Trastevere 晚餐</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Day 14: 競技場 -->
+  <div class="day-section reverse">
+    <div class="day-image-wrap">
+      <div class="day-image" style="background-image:url('https://images.unsplash.com/photo-1552832230-c0197dd311b5?auto=format&fit=crop&w=900&q=80')"></div>
+      <div class="day-image-overlay"></div>
+      <div class="day-image-label">羅馬競技場 · 羅馬</div>
+    </div>
+    <div class="day-content-wrap">
+      <div class="day-eyebrow">
+        <span class="day-num-badge">Day 14 · 10/8 四</span>
+        <span class="day-date-str">古羅馬核心日</span>
+      </div>
+      <h3 class="day-title">站在競技場中央，<br>感受 2000 年的重量</h3>
+      <p class="day-narrative">羅馬競技場建於西元 80 年，可容納 5 萬人。從看台往下看，你可以想像角鬥士入場的瞬間。下午走到真理之口，把手伸進去——電影《羅馬假期》讓這塊石盤成了永遠的梗圖。晚上，特雷維噴泉的夜景和白天完全不同，值得再去一次。</p>
+      <div class="day-timeline">
+        <div class="tl-item">
+          <div class="tl-dot-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div>
+          <div class="tl-time">08:30</div>
+          <div><div class="tl-spot">🏟 羅馬競技場 Colosseum</div><div class="tl-note">2026/10 開放至 18:30｜⚠ 只從官網購票，避免第三方加價</div></div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div>
+          <div class="tl-time">10:30</div>
+          <div><div class="tl-spot">🏛 古羅馬廣場 + 帕拉提諾山</div><div class="tl-note">與競技場同票，早上遮蔭少，越早越好</div></div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div>
+          <div class="tl-time">下午</div>
+          <div><div class="tl-spot">😮 真理之口 → 卡比托利歐廣場 → 威尼斯廣場</div></div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot-wrap"><div class="tl-dot"></div></div>
+          <div class="tl-time">晚上</div>
+          <div><div class="tl-spot">🌙 特雷維噴泉夜景</div><div class="tl-note">夜燈下的藍色水光和白天完全不同，值得再訪</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Day 15: Outlet -->
+  <div class="day-section">
+    <div class="day-image-wrap">
+      <div class="day-image" style="background-image:url('https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=900&q=80')"></div>
+      <div class="day-image-overlay"></div>
+      <div class="day-image-label">Shopping · Castel Romano</div>
+    </div>
+    <div class="day-content-wrap">
+      <div class="day-eyebrow">
+        <span class="day-num-badge">Day 15 · 10/9 五</span>
+        <span class="day-date-str">購物日</span>
+      </div>
+      <h3 class="day-title">羅馬近郊 Outlet，<br>最後的戰利品</h3>
+      <p class="day-narrative">行程的最後一個整天，把這天留給 Castel Romano Designer Outlet。從 Termini 搭接駁車出發，各大精品牌以折扣價等著你。記得今晚早點回、早點整理行李——明天清晨 5 點要出門搭機。</p>
+      <div class="day-timeline">
+        <div class="tl-item">
+          <div class="tl-dot-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div>
+          <div class="tl-time">09:30</div>
+          <div><div class="tl-spot">搭接駁車出發</div><div class="tl-note">Termini Via Giolitti 48，班次：09:30 / 10:30 / 11:30</div></div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot-wrap"><div class="tl-dot"></div></div>
+          <div class="tl-time">回程</div>
+          <div><div class="tl-spot">🛍 回程班次：17:30 / 19:00</div><div class="tl-note">備護照影本 · 問 Tax Refund · 行李箱留空間 · 先查台灣售價</div></div>
+        </div>
+      </div>
+      <div class="day-tip warn">⚠ 今晚 22:00 前要整理好行李，明天 05:00 出門搭機</div>
+    </div>
+  </div>
+
+  <!-- Day 16-17: Return -->
+  <div class="day-section reverse">
+    <div class="day-image-wrap">
+      <div class="day-image" style="background-image:url('https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=900&q=80')"></div>
+      <div class="day-image-overlay"></div>
+      <div class="day-image-label">返程</div>
+    </div>
+    <div class="day-content-wrap">
+      <div class="day-eyebrow">
+        <span class="day-num-badge">Day 16–17 · 10/10–11</span>
+        <span class="day-date-str">返程</span>
+      </div>
+      <h3 class="day-title">帶著羅馬的夢，<br>飛回台灣</h3>
+      <p class="day-narrative">清晨 5 點，飯店的走廊還是安靜的。裝滿回憶的行李拖出門，前往 Fiumicino 機場。經慕尼黑轉機，第二天清晨降落台北。義大利，下次見。</p>
+      <div class="day-timeline">
+        <div class="tl-item">
+          <div class="tl-dot-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div>
+          <div class="tl-time">05:00</div>
+          <div><div class="tl-spot">前往 Fiumicino 機場</div><div class="tl-note">計程車（前一晚飯店預約）</div></div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div>
+          <div class="tl-time">08:35</div>
+          <div><div class="tl-spot">✈ 羅馬 → 慕尼黑 T2（10:00 抵）</div></div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot-wrap"><div class="tl-dot"></div></div>
+          <div class="tl-time">12:00</div>
+          <div><div class="tl-spot">✈ 慕尼黑 → 台北 T2（10/11 06:35 抵）</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<!-- ── SUMMARY ── -->
+<section class="summary-section" id="summary">
+  <p class="section-label">Overview</p>
+  <h2 class="section-heading">17 天·一張總表</h2>
+  <div class="timeline-wrap">
+    <div class="tl-day-row transit"><div class="tl-day-date">9/25 五</div><div class="tl-day-city" style="color:var(--stone)">飛機</div><div class="tl-day-theme">🛫 台北出發 BR 0095</div></div>
+    <div class="tl-day-row milan"><div class="tl-day-date">9/26 六</div><div class="tl-day-city" style="color:#c0392b">米蘭</div><div class="tl-day-theme">達文西《最後的晚餐》+ 斯福爾扎古堡</div></div>
+    <div class="tl-day-row milan"><div class="tl-day-date">9/27 日</div><div class="tl-day-city" style="color:#c0392b">米蘭</div><div class="tl-day-theme">大教堂屋頂 + 拱廊 + 蒙特拿破崙精品街 + Navigli</div></div>
+    <div class="tl-day-row venice"><div class="tl-day-date">9/28 一</div><div class="tl-day-city" style="color:#2471a3">威尼斯</div><div class="tl-day-theme">移動日 + 里阿爾托橋 + San Polo</div></div>
+    <div class="tl-day-row venice"><div class="tl-day-date">9/29 二</div><div class="tl-day-city" style="color:#2471a3">威尼斯</div><div class="tl-day-theme">聖馬可廣場 + 學院橋 + 貢多拉</div></div>
+    <div class="tl-day-row venice"><div class="tl-day-date">9/30 三</div><div class="tl-day-city" style="color:#2471a3">威尼斯</div><div class="tl-day-theme">Dorsoduro + Zattere + 聖馬可夜景</div></div>
+    <div class="tl-day-row florence"><div class="tl-day-date">10/1 四</div><div class="tl-day-city" style="color:#d35400">佛羅倫斯</div><div class="tl-day-theme">移動日 + 烏菲茲美術館 + 老橋日落 18:56</div></div>
+    <div class="tl-day-row florence"><div class="tl-day-date">10/2 五</div><div class="tl-day-city" style="color:#d35400">佛羅倫斯</div><div class="tl-day-theme">新聖母教堂 + 中央市場 + 學院美術館大衛像</div></div>
+    <div class="tl-day-row florence"><div class="tl-day-date">10/3 六</div><div class="tl-day-city" style="color:#d35400">佛羅倫斯</div><div class="tl-day-theme">百花聖殿 + 領主廣場 + 米開朗基羅廣場夕陽 ⭐</div></div>
+    <div class="tl-day-row florence"><div class="tl-day-date">10/4 日</div><div class="tl-day-city" style="color:#d35400">佛羅倫斯</div><div class="tl-day-theme">✨ FREE 自由日</div></div>
+    <div class="tl-day-row rome"><div class="tl-day-date">10/5 一</div><div class="tl-day-city" style="color:#7d6608">羅馬</div><div class="tl-day-theme">移動日 + 摩西像 + 聖母大殿</div></div>
+    <div class="tl-day-row rome"><div class="tl-day-date">10/6 二</div><div class="tl-day-city" style="color:#7d6608">羅馬</div><div class="tl-day-theme">梵蒂岡博物館 + 聖伯多祿大殿 + 聖天使城堡</div></div>
+    <div class="tl-day-row rome"><div class="tl-day-date">10/7 三</div><div class="tl-day-city" style="color:#7d6608">羅馬</div><div class="tl-day-theme">西班牙階梯 + 特雷維噴泉 + 萬神殿 + 納沃納廣場</div></div>
+    <div class="tl-day-row rome"><div class="tl-day-date">10/8 四</div><div class="tl-day-city" style="color:#7d6608">羅馬</div><div class="tl-day-theme">羅馬競技場 + 古羅馬廣場 + 真理之口 + 夜遊噴泉</div></div>
+    <div class="tl-day-row rome"><div class="tl-day-date">10/9 五</div><div class="tl-day-city" style="color:#7d6608">羅馬</div><div class="tl-day-theme">Castel Romano Designer Outlet 購物日</div></div>
+    <div class="tl-day-row transit"><div class="tl-day-date">10/10 六</div><div class="tl-day-city" style="color:var(--stone)">返程</div><div class="tl-day-theme">✈ 羅馬 → 慕尼黑 → 台北</div></div>
+    <div class="tl-day-row transit"><div class="tl-day-date">10/11 日</div><div class="tl-day-city" style="color:var(--stone)">台北</div><div class="tl-day-theme">🏠 06:35 抵達，回台中</div></div>
+  </div>
+</section>
 
 <footer>
-  義大利 2026｜17 Days · 4 Cities · Infinite Memories 🇮🇹
+  <div class="footer-title">La Dolce Italia · 2026</div>
+  <p>米蘭 · 威尼斯 · 佛羅倫斯 · 羅馬 · 17 天 · 無數記憶</p>
 </footer>
 
 </body>
