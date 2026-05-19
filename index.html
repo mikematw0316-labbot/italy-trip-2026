@@ -36,7 +36,7 @@ body {
 }
 .hero-img {
   position: absolute; inset: 0;
-  background-image: url('https://images.unsplash.com/photo-1552832230-c0197dd311b5?auto=format&fit=crop&w=1800&q=85');
+  background-image: url('https://images.unsplash.com/photo-VFRTXGw1VjU?auto=format&fit=crop&w=1800&q=85');
   background-size: cover;
   background-position: center 40%;
   transform: scale(1.05);
@@ -150,7 +150,20 @@ body {
   transition: all 0.2s;
   white-space: nowrap;
 }
+.city-nav a.nav-city {
+  flex: 1;
+  text-align: center;
+}
 .city-nav a:hover { color: var(--dark); border-bottom-color: var(--gold); }
+
+/* Map links */
+.map-link {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px dotted rgba(138,127,114,0.5);
+  transition: color 0.2s, border-color 0.2s;
+}
+.map-link:hover { color: var(--terracotta); border-bottom-color: var(--terracotta); }
 
 /* ── BOOKING SECTION ── */
 .booking-section {
@@ -539,10 +552,10 @@ footer .footer-title {
 <!-- ── NAV ── -->
 <nav class="city-nav" id="top-nav">
   <a href="#checklist">預約清單</a>
-  <a href="#milan">🔴 米蘭</a>
-  <a href="#venice">🔵 威尼斯</a>
-  <a href="#florence">🟠 佛羅倫斯</a>
-  <a href="#rome">🟡 羅馬</a>
+  <a href="#milan" class="nav-city">米蘭</a>
+  <a href="#venice" class="nav-city">威尼斯</a>
+  <a href="#florence" class="nav-city">佛羅倫斯</a>
+  <a href="#rome" class="nav-city">羅馬</a>
   <a href="#summary">總覽</a>
 </nav>
 
@@ -603,7 +616,7 @@ footer .footer-title {
 <section class="city-block" id="milan">
 
   <div class="city-hero">
-    <div class="city-hero-img" style="background-image:url('https://images.unsplash.com/photo-1520175480921-4edfa2983e0f?auto=format&fit=crop&w=1800&q=85')"></div>
+    <div class="city-hero-img" style="background-image:url('https://images.unsplash.com/photo-m5Ewuy9ZKVg?auto=format&fit=crop&w=1800&q=85')"></div>
     <div class="city-hero-overlay"></div>
     <div class="city-hero-content">
       <span class="city-tag">🔴 City 01</span>
@@ -616,9 +629,9 @@ footer .footer-title {
   <!-- Day 2: 最後的晚餐 + 古堡 -->
   <div class="day-section">
     <div class="day-image-wrap">
-      <div class="day-image" style="background-image:url('https://images.unsplash.com/photo-1533929736458-ca588d08c8be?auto=format&fit=crop&w=900&q=80')"></div>
+      <div class="day-image" style="background-image:url('https://images.unsplash.com/photo-dgLr77nLctg?auto=format&fit=crop&w=900&q=80')"></div>
       <div class="day-image-overlay"></div>
-      <div class="day-image-label">恩寵聖母教堂 · 米蘭</div>
+      <div class="day-image-label">米蘭大教堂 · 米蘭</div>
     </div>
     <div class="day-content-wrap">
       <div class="day-eyebrow">
@@ -636,17 +649,17 @@ footer .footer-title {
         <div class="tl-item">
           <div class="tl-dot-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div>
           <div class="tl-time">14:00</div>
-          <div><div class="tl-spot">🖼 達文西《最後的晚餐》</div><div class="tl-note">恩寵聖母教堂（Santa Maria delle Grazie）｜每批僅 30 人，15 分鐘｜⚠ 需提早預約</div></div>
+          <div><div class="tl-spot"><a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Santa+Maria+delle+Grazie+Milan" target="_blank">🖼 達文西《最後的晚餐》</a></div><div class="tl-note">恩寵聖母教堂（Santa Maria delle Grazie）｜每批僅 30 人，15 分鐘｜⚠ 需提早預約</div></div>
         </div>
         <div class="tl-item">
           <div class="tl-dot-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div>
           <div class="tl-time">16:30</div>
-          <div><div class="tl-spot">🏰 斯福爾扎古堡 → 森皮奧內公園</div><div class="tl-note">黃昏光線下的古堡最美，走進公園散散步</div></div>
+          <div><div class="tl-spot"><a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Sforza+Castle+Milan" target="_blank">🏰 斯福爾扎古堡 → 森皮奧內公園</a></div><div class="tl-note">黃昏光線下的古堡最美，走進公園散散步</div></div>
         </div>
         <div class="tl-item">
           <div class="tl-dot-wrap"><div class="tl-dot"></div></div>
           <div class="tl-time">晚餐</div>
-          <div><div class="tl-spot">Brera 布雷拉區用餐</div><div class="tl-note">第一晚早點回，時差還沒調好</div></div>
+          <div><div class="tl-spot"><a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Brera+district+Milan" target="_blank">Brera 布雷拉區用餐</a></div><div class="tl-note">第一晚早點回，時差還沒調好</div></div>
         </div>
       </div>
     </div>
@@ -655,7 +668,7 @@ footer .footer-title {
   <!-- Day 3: 大教堂 + 精品街 -->
   <div class="day-section reverse">
     <div class="day-image-wrap">
-      <div class="day-image" style="background-image:url('https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?auto=format&fit=crop&w=900&q=80')"></div>
+      <div class="day-image" style="background-image:url('https://images.unsplash.com/photo-WliQqJtYpLA?auto=format&fit=crop&w=900&q=80')"></div>
       <div class="day-image-overlay"></div>
       <div class="day-image-label">埃馬努埃萊二世拱廊 · 米蘭</div>
     </div>
@@ -670,22 +683,22 @@ footer .footer-title {
         <div class="tl-item">
           <div class="tl-dot-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div>
           <div class="tl-time">09:00</div>
-          <div><div class="tl-spot">🕍 米蘭大教堂 + 屋頂</div><div class="tl-note">Duomo Pass Lift｜站在哥德式尖頂間俯瞰米蘭</div></div>
+          <div><div class="tl-spot"><a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Milan+Cathedral+Duomo" target="_blank">🕍 米蘭大教堂 + 屋頂</a></div><div class="tl-note">Duomo Pass Lift｜站在哥德式尖頂間俯瞰米蘭</div></div>
         </div>
         <div class="tl-item">
           <div class="tl-dot-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div>
           <div class="tl-time">11:00</div>
-          <div><div class="tl-spot">🏛 埃馬努埃萊二世拱廊 → 史卡拉歌劇院</div><div class="tl-note">世界最美拱廊購物中心，光線從玻璃穹頂灑落</div></div>
+          <div><div class="tl-spot"><a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Galleria+Vittorio+Emanuele+II+Milan" target="_blank">🏛 埃馬努埃萊二世拱廊 → 史卡拉歌劇院</a></div><div class="tl-note">世界最美拱廊購物中心，光線從玻璃穹頂灑落</div></div>
         </div>
         <div class="tl-item">
           <div class="tl-dot-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div>
           <div class="tl-time">14:00</div>
-          <div><div class="tl-spot">💎 蒙特拿破崙大街精品區</div><div class="tl-note">梵克雅寶 Van Cleef & Arpels · Via Montenapoleone · Via della Spiga</div></div>
+          <div><div class="tl-spot"><a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Via+Montenapoleone+Milan" target="_blank">💎 蒙特拿破崙大街精品區</a></div><div class="tl-note">梵克雅寶 Van Cleef & Arpels · Via Montenapoleone · Via della Spiga</div></div>
         </div>
         <div class="tl-item">
           <div class="tl-dot-wrap"><div class="tl-dot"></div></div>
           <div class="tl-time">傍晚</div>
-          <div><div class="tl-spot">🌊 Navigli 運河夜晚</div><div class="tl-note">散步、Aperitivo 開胃酒、河岸晚餐</div></div>
+          <div><div class="tl-spot"><a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Navigli+Milan" target="_blank">🌊 Navigli 運河夜晚</a></div><div class="tl-note">散步、Aperitivo 開胃酒、河岸晚餐</div></div>
         </div>
       </div>
       <div class="day-tip tip">☕ 加碼：星巴克臻選烘焙工坊 · Piazza Cordusio — 米蘭旗艦店，空間設計值得一看</div>
@@ -698,7 +711,7 @@ footer .footer-title {
 <section class="city-block" id="venice">
 
   <div class="city-hero">
-    <div class="city-hero-img" style="background-image:url('https://images.unsplash.com/photo-1534430480872-3498386e7856?auto=format&fit=crop&w=1800&q=85')"></div>
+    <div class="city-hero-img" style="background-image:url('https://images.unsplash.com/photo-s9u-sBJiRnE?auto=format&fit=crop&w=1800&q=85')"></div>
     <div class="city-hero-overlay"></div>
     <div class="city-hero-content">
       <span class="city-tag">🔵 City 02</span>
@@ -711,7 +724,7 @@ footer .footer-title {
   <!-- Day 4: 移動 + Rialto -->
   <div class="day-section">
     <div class="day-image-wrap">
-      <div class="day-image" style="background-image:url('https://images.unsplash.com/photo-1467269204594-9661b134dd2b?auto=format&fit=crop&w=900&q=80')"></div>
+      <div class="day-image" style="background-image:url('https://images.unsplash.com/photo-hFXZ5cNfkOk?auto=format&fit=crop&w=900&q=80')"></div>
       <div class="day-image-overlay"></div>
       <div class="day-image-label">里阿爾托橋 · 威尼斯</div>
     </div>
@@ -736,7 +749,7 @@ footer .footer-title {
         <div class="tl-item">
           <div class="tl-dot-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div>
           <div class="tl-time">下午</div>
-          <div><div class="tl-spot">🌉 里阿爾托橋 · San Polo 小巷漫步</div><div class="tl-note">不用趕，讓自己迷路，這才是威尼斯</div></div>
+          <div><div class="tl-spot"><a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Rialto+Bridge+Venice" target="_blank">🌉 里阿爾托橋 · San Polo 小巷漫步</a></div><div class="tl-note">不用趕，讓自己迷路，這才是威尼斯</div></div>
         </div>
         <div class="tl-item">
           <div class="tl-dot-wrap"><div class="tl-dot"></div></div>
@@ -750,7 +763,7 @@ footer .footer-title {
   <!-- Day 5: 聖馬可 -->
   <div class="day-section reverse">
     <div class="day-image-wrap">
-      <div class="day-image" style="background-image:url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=900&q=80')"></div>
+      <div class="day-image" style="background-image:url('https://images.unsplash.com/photo-yoz36gllbmM?auto=format&fit=crop&w=900&q=80')"></div>
       <div class="day-image-overlay"></div>
       <div class="day-image-label">聖馬可廣場 · 威尼斯</div>
     </div>
@@ -765,17 +778,17 @@ footer .footer-title {
         <div class="tl-item">
           <div class="tl-dot-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div>
           <div class="tl-time">08:00</div>
-          <div><div class="tl-spot">🦁 聖馬可廣場 · 大教堂 · 鐘樓</div><div class="tl-note">早去人少，光線最好｜總督宮 + 嘆息橋建議提前預約</div></div>
+          <div><div class="tl-spot"><a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Piazza+San+Marco+Venice" target="_blank">🦁 聖馬可廣場 · 大教堂 · 鐘樓</a></div><div class="tl-note">早去人少，光線最好｜總督宮 + 嘆息橋建議提前預約</div></div>
         </div>
         <div class="tl-item">
           <div class="tl-dot-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div>
           <div class="tl-time">下午</div>
-          <div><div class="tl-spot">🎭 鳳凰劇院外觀 → 學院橋</div><div class="tl-note">站在學院橋上，是大運河最美的取景框</div></div>
+          <div><div class="tl-spot"><a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Accademia+Bridge+Venice" target="_blank">🎭 鳳凰劇院外觀 → 學院橋</a></div><div class="tl-note">站在學院橋上，是大運河最美的取景框</div></div>
         </div>
         <div class="tl-item">
           <div class="tl-dot-wrap"><div class="tl-dot"></div></div>
           <div class="tl-time">傍晚</div>
-          <div><div class="tl-spot">🛶 貢多拉或 Vaporetto 1 號線</div><div class="tl-note">傍晚光線最美｜省預算可搭水上巴士看大運河沿岸</div></div>
+          <div><div class="tl-spot"><a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Grand+Canal+Venice+gondola" target="_blank">🛶 貢多拉或 Vaporetto 1 號線</a></div><div class="tl-note">傍晚光線最美｜省預算可搭水上巴士看大運河沿岸</div></div>
         </div>
       </div>
     </div>
@@ -784,9 +797,9 @@ footer .footer-title {
   <!-- Day 6: Dorsoduro -->
   <div class="day-section">
     <div class="day-image-wrap">
-      <div class="day-image" style="background-image:url('https://images.unsplash.com/photo-1587974928442-77dc3e0dba72?auto=format&fit=crop&w=900&q=80')"></div>
+      <div class="day-image" style="background-image:url('https://images.unsplash.com/photo-cZ6-FXVNj7k?auto=format&fit=crop&w=900&q=80')"></div>
       <div class="day-image-overlay"></div>
-      <div class="day-image-label">多爾索杜羅區 · 威尼斯</div>
+      <div class="day-image-label">安康聖母教堂 · 威尼斯</div>
     </div>
     <div class="day-content-wrap">
       <div class="day-eyebrow">
@@ -799,22 +812,22 @@ footer .footer-title {
         <div class="tl-item">
           <div class="tl-dot-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div>
           <div class="tl-time">上午</div>
-          <div><div class="tl-spot">🖼 Peggy Guggenheim 美術館</div><div class="tl-note">現代藝術收藏，面向大運河的露台是絕景</div></div>
+          <div><div class="tl-spot"><a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Peggy+Guggenheim+Collection+Venice" target="_blank">🖼 Peggy Guggenheim 美術館</a></div><div class="tl-note">現代藝術收藏，面向大運河的露台是絕景</div></div>
         </div>
         <div class="tl-item">
           <div class="tl-dot-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div>
           <div class="tl-time">中午</div>
-          <div><div class="tl-spot">☀️ Zattere 海濱午餐</div><div class="tl-note">面向朱代卡島的寬廣海濱，最適合曬太陽喝咖啡</div></div>
+          <div><div class="tl-spot"><a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Zattere+Venice" target="_blank">☀️ Zattere 海濱午餐</a></div><div class="tl-note">面向朱代卡島的寬廣海濱，最適合曬太陽喝咖啡</div></div>
         </div>
         <div class="tl-item">
           <div class="tl-dot-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div>
           <div class="tl-time">下午</div>
-          <div><div class="tl-spot">⛪ 安康聖母教堂外觀</div><div class="tl-note">巴洛克圓頂，是大運河最美的終點背景</div></div>
+          <div><div class="tl-spot"><a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Santa+Maria+della+Salute+Venice" target="_blank">⛪ 安康聖母教堂外觀</a></div><div class="tl-note">巴洛克圓頂，是大運河最美的終點背景</div></div>
         </div>
         <div class="tl-item">
           <div class="tl-dot-wrap"><div class="tl-dot"></div></div>
           <div class="tl-time">晚上</div>
-          <div><div class="tl-spot">🌙 威尼斯最後一晚：聖馬可夜景</div><div class="tl-note">晚上的聖馬可廣場燈光下非常有氣氛，人少很多</div></div>
+          <div><div class="tl-spot"><a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Piazza+San+Marco+Venice" target="_blank">🌙 威尼斯最後一晚：聖馬可夜景</a></div><div class="tl-note">晚上的聖馬可廣場燈光下非常有氣氛，人少很多</div></div>
         </div>
       </div>
     </div>
@@ -826,7 +839,7 @@ footer .footer-title {
 <section class="city-block" id="florence">
 
   <div class="city-hero">
-    <div class="city-hero-img" style="background-image:url('https://images.unsplash.com/photo-1543429258-340b897bfb40?auto=format&fit=crop&w=1800&q=85')"></div>
+    <div class="city-hero-img" style="background-image:url('https://images.unsplash.com/photo-52kexp8M13c?auto=format&fit=crop&w=1800&q=85')"></div>
     <div class="city-hero-overlay"></div>
     <div class="city-hero-content">
       <span class="city-tag">🟠 City 03</span>
@@ -839,7 +852,7 @@ footer .footer-title {
   <!-- Day 7: 移動 + 烏菲茲 + 老橋 -->
   <div class="day-section">
     <div class="day-image-wrap">
-      <div class="day-image" style="background-image:url('https://images.unsplash.com/photo-1515542622106-78bda8ba0e5b?auto=format&fit=crop&w=900&q=80')"></div>
+      <div class="day-image" style="background-image:url('https://images.unsplash.com/photo-fXBqmu1Bzzg?auto=format&fit=crop&w=900&q=80')"></div>
       <div class="day-image-overlay"></div>
       <div class="day-image-label">老橋日落 · 佛羅倫斯</div>
     </div>
@@ -859,12 +872,12 @@ footer .footer-title {
         <div class="tl-item">
           <div class="tl-dot-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div>
           <div class="tl-time">15:00</div>
-          <div><div class="tl-spot">🖼 烏菲茲美術館 Uffizi Gallery</div><div class="tl-note">達文西 · 米開朗基羅 · 波提切利《維納斯的誕生》｜⚠ 需提前預約</div></div>
+          <div><div class="tl-spot"><a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Uffizi+Gallery+Florence" target="_blank">🖼 烏菲茲美術館 Uffizi Gallery</a></div><div class="tl-note">達文西 · 米開朗基羅 · 波提切利《維納斯的誕生》｜⚠ 需提前預約</div></div>
         </div>
         <div class="tl-item">
           <div class="tl-dot-wrap"><div class="tl-dot"></div></div>
           <div class="tl-time">17:30</div>
-          <div><div class="tl-spot">🌅 老橋日落（日落 18:56）</div><div class="tl-note">最佳拍攝點：聖三一橋 Ponte Santa Trinita，可拍到老橋完整輪廓</div></div>
+          <div><div class="tl-spot"><a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Ponte+Vecchio+Florence" target="_blank">🌅 老橋日落（日落 18:56）</a></div><div class="tl-note">最佳拍攝點：聖三一橋 Ponte Santa Trinita，可拍到老橋完整輪廓</div></div>
         </div>
       </div>
       <div class="day-tip highlight">⭐ 老橋上的金飾店從中世紀就在了，傍晚的燈光下每一間都像珠寶盒</div>
@@ -874,9 +887,9 @@ footer .footer-title {
   <!-- Day 8: 大衛像 -->
   <div class="day-section reverse">
     <div class="day-image-wrap">
-      <div class="day-image" style="background-image:url('https://images.unsplash.com/photo-1574782648963-f4fd7c9e4e37?auto=format&fit=crop&w=900&q=80')"></div>
+      <div class="day-image" style="background-image:url('https://images.unsplash.com/photo-nLJzoLp7gbU?auto=format&fit=crop&w=900&q=80')"></div>
       <div class="day-image-overlay"></div>
-      <div class="day-image-label">學院美術館 · 佛羅倫斯</div>
+      <div class="day-image-label">阿諾河畔 · 佛羅倫斯</div>
     </div>
     <div class="day-content-wrap">
       <div class="day-eyebrow">
@@ -889,17 +902,17 @@ footer .footer-title {
         <div class="tl-item">
           <div class="tl-dot-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div>
           <div class="tl-time">上午</div>
-          <div><div class="tl-spot">⛪ 新聖母教堂 Santa Maria Novella</div><div class="tl-note">就在飯店旁，馬薩喬的透視壁畫是文藝復興的起點</div></div>
+          <div><div class="tl-spot"><a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Santa+Maria+Novella+Florence" target="_blank">⛪ 新聖母教堂 Santa Maria Novella</a></div><div class="tl-note">就在飯店旁，馬薩喬的透視壁畫是文藝復興的起點</div></div>
         </div>
         <div class="tl-item">
           <div class="tl-dot-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div>
           <div class="tl-time">中午</div>
-          <div><div class="tl-spot">🏛 聖老楞佐大殿 → 中央市場午餐</div><div class="tl-note">Mercato Centrale 樓上美食區，輕鬆隨意各種選擇</div></div>
+          <div><div class="tl-spot"><a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Mercato+Centrale+Florence" target="_blank">🏛 聖老楞佐大殿 → 中央市場午餐</a></div><div class="tl-note">Mercato Centrale 樓上美食區，輕鬆隨意各種選擇</div></div>
         </div>
         <div class="tl-item">
           <div class="tl-dot-wrap"><div class="tl-dot"></div></div>
           <div class="tl-time">15:00</div>
-          <div><div class="tl-spot">🗿 學院美術館（大衛像）</div><div class="tl-note">開放 08:15–18:50，最後入場 18:20｜⚠ 需提前預約</div></div>
+          <div><div class="tl-spot"><a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Accademia+Gallery+Florence" target="_blank">🗿 學院美術館（大衛像）</a></div><div class="tl-note">開放 08:15–18:50，最後入場 18:20｜⚠ 需提前預約</div></div>
         </div>
       </div>
     </div>
@@ -908,7 +921,7 @@ footer .footer-title {
   <!-- Day 9: 百花聖殿 + 米開朗基羅廣場 -->
   <div class="day-section">
     <div class="day-image-wrap">
-      <div class="day-image" style="background-image:url('https://images.unsplash.com/photo-1580537659466-0a9bfa916a54?auto=format&fit=crop&w=900&q=80')"></div>
+      <div class="day-image" style="background-image:url('https://images.unsplash.com/photo-AVQUqyNYZMM?auto=format&fit=crop&w=900&q=80')"></div>
       <div class="day-image-overlay"></div>
       <div class="day-image-label">米開朗基羅廣場夕陽 · 佛羅倫斯</div>
     </div>
@@ -923,17 +936,17 @@ footer .footer-title {
         <div class="tl-item">
           <div class="tl-dot-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div>
           <div class="tl-time">上午</div>
-          <div><div class="tl-spot">🌺 聖母百花聖殿 + 洗禮堂</div><div class="tl-note">登穹頂或鐘樓需提前預約，二選一即可</div></div>
+          <div><div class="tl-spot"><a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Florence+Cathedral+Duomo" target="_blank">🌺 聖母百花聖殿 + 洗禮堂</a></div><div class="tl-note">登穹頂或鐘樓需提前預約，二選一即可</div></div>
         </div>
         <div class="tl-item">
           <div class="tl-dot-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div>
           <div class="tl-time">中午</div>
-          <div><div class="tl-spot">共和廣場 → 野豬噴泉 → 領主廣場 → 舊宮 → 傭兵涼廊</div></div>
+          <div><div class="tl-spot"><a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Piazza+della+Signoria+Florence" target="_blank">共和廣場 → 野豬噴泉 → 領主廣場 → 舊宮 → 傭兵涼廊</a></div></div>
         </div>
         <div class="tl-item">
           <div class="tl-dot-wrap"><div class="tl-dot"></div></div>
           <div class="tl-time">17:00</div>
-          <div><div class="tl-spot">🌅 米開朗基羅廣場 Piazzale Michelangelo</div><div class="tl-note">日落前 45–60 分鐘抵達，站好位置等光線變化</div></div>
+          <div><div class="tl-spot"><a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Piazzale+Michelangelo+Florence" target="_blank">🌅 米開朗基羅廣場 Piazzale Michelangelo</a></div><div class="tl-note">日落前 45–60 分鐘抵達，站好位置等光線變化</div></div>
         </div>
       </div>
       <div class="day-tip highlight">⭐ 這是整個義大利行程最值得等待夕陽的地點，不要錯過！</div>
@@ -971,7 +984,7 @@ footer .footer-title {
 <section class="city-block" id="rome">
 
   <div class="city-hero">
-    <div class="city-hero-img" style="background-image:url('https://images.unsplash.com/photo-1570168007204-dfb528c6958f?auto=format&fit=crop&w=1800&q=85')"></div>
+    <div class="city-hero-img" style="background-image:url('https://images.unsplash.com/photo-l0Ii4WaROS8?auto=format&fit=crop&w=1800&q=85')"></div>
     <div class="city-hero-overlay"></div>
     <div class="city-hero-content">
       <span class="city-tag">🟡 City 04</span>
@@ -984,9 +997,9 @@ footer .footer-title {
   <!-- Day 11: 移動 + 摩西像 -->
   <div class="day-section">
     <div class="day-image-wrap">
-      <div class="day-image" style="background-image:url('https://images.unsplash.com/photo-1531572753322-ad063cecc140?auto=format&fit=crop&w=900&q=80')"></div>
+      <div class="day-image" style="background-image:url('https://images.unsplash.com/photo-reyrEqzQrj4?auto=format&fit=crop&w=900&q=80')"></div>
       <div class="day-image-overlay"></div>
-      <div class="day-image-label">聖母大殿 · 羅馬</div>
+      <div class="day-image-label">聖伯多祿大殿夕陽 · 羅馬</div>
     </div>
     <div class="day-content-wrap">
       <div class="day-eyebrow">
@@ -1004,12 +1017,12 @@ footer .footer-title {
         <div class="tl-item">
           <div class="tl-dot-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div>
           <div class="tl-time">下午</div>
-          <div><div class="tl-spot">⛓ 摩西像 San Pietro in Vincoli</div><div class="tl-note">米開朗基羅晚年之作，很多人說更震撼過大衛</div></div>
+          <div><div class="tl-spot"><a class="map-link" href="https://www.google.com/maps/search/?api=1&query=San+Pietro+in+Vincoli+Rome" target="_blank">⛓ 摩西像 San Pietro in Vincoli</a></div><div class="tl-note">米開朗基羅晚年之作，很多人說更震撼過大衛</div></div>
         </div>
         <div class="tl-item">
           <div class="tl-dot-wrap"><div class="tl-dot"></div></div>
           <div class="tl-time">傍晚</div>
-          <div><div class="tl-spot">🕍 聖母大殿 Basilica di Santa Maria Maggiore</div><div class="tl-note">走路就到，就在飯店旁邊</div></div>
+          <div><div class="tl-spot"><a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Basilica+di+Santa+Maria+Maggiore+Rome" target="_blank">🕍 聖母大殿 Basilica di Santa Maria Maggiore</a></div><div class="tl-note">走路就到，就在飯店旁邊</div></div>
         </div>
       </div>
       <div class="day-tip tip">💡 今晚在 Monti 區吃飯，是羅馬最有個性的街區，離住處也近</div>
@@ -1019,9 +1032,9 @@ footer .footer-title {
   <!-- Day 12: 梵蒂岡 -->
   <div class="day-section reverse">
     <div class="day-image-wrap">
-      <div class="day-image" style="background-image:url('https://images.unsplash.com/photo-1555992336-03a23c7b20ee?auto=format&fit=crop&w=900&q=80')"></div>
+      <div class="day-image" style="background-image:url('https://images.unsplash.com/photo-mJDuO7CzO74?auto=format&fit=crop&w=900&q=80')"></div>
       <div class="day-image-overlay"></div>
-      <div class="day-image-label">梵蒂岡 · 羅馬</div>
+      <div class="day-image-label">梵蒂岡聖伯多祿大殿 · 羅馬</div>
     </div>
     <div class="day-content-wrap">
       <div class="day-eyebrow">
@@ -1034,17 +1047,17 @@ footer .footer-title {
         <div class="tl-item">
           <div class="tl-dot-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div>
           <div class="tl-time">08:30</div>
-          <div><div class="tl-spot">🏛 梵蒂岡博物館</div><div class="tl-note">西斯汀禮拜堂 · 拉斐爾房間 · 螺旋樓梯 · 地圖廊｜⚠ 需提前預約</div></div>
+          <div><div class="tl-spot"><a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Vatican+Museums+Rome" target="_blank">🏛 梵蒂岡博物館</a></div><div class="tl-note">西斯汀禮拜堂 · 拉斐爾房間 · 螺旋樓梯 · 地圖廊｜⚠ 需提前預約</div></div>
         </div>
         <div class="tl-item">
           <div class="tl-dot-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div>
           <div class="tl-time">13:00</div>
-          <div><div class="tl-spot">🕊 聖伯多祿大殿 St. Peter's Basilica</div><div class="tl-note">「聖殤像」· 登圓頂俯瞰羅馬（視排隊狀況）</div></div>
+          <div><div class="tl-spot"><a class="map-link" href="https://www.google.com/maps/search/?api=1&query=St+Peters+Basilica+Vatican" target="_blank">🕊 聖伯多祿大殿 St. Peter's Basilica</a></div><div class="tl-note">「聖殤像」· 登圓頂俯瞰羅馬（視排隊狀況）</div></div>
         </div>
         <div class="tl-item">
           <div class="tl-dot-wrap"><div class="tl-dot"></div></div>
           <div class="tl-time">傍晚</div>
-          <div><div class="tl-spot">🏰 聖天使城堡 + 聖天使橋</div><div class="tl-note">貝尼尼設計的天使雕像 · 橋上拍台伯河夕景</div></div>
+          <div><div class="tl-spot"><a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Castel+Sant+Angelo+Rome" target="_blank">🏰 聖天使城堡 + 聖天使橋</a></div><div class="tl-note">貝尼尼設計的天使雕像 · 橋上拍台伯河夕景</div></div>
         </div>
       </div>
       <div class="day-tip warn">⚠ 旺季博物館人潮極大，08:30 入場是最佳選擇</div>
@@ -1054,7 +1067,7 @@ footer .footer-title {
   <!-- Day 13: 噴泉廣場 -->
   <div class="day-section">
     <div class="day-image-wrap">
-      <div class="day-image" style="background-image:url('https://images.unsplash.com/photo-1529260830199-42c24126f198?auto=format&fit=crop&w=900&q=80')"></div>
+      <div class="day-image" style="background-image:url('https://images.unsplash.com/photo-Eh8fAucoGRc?auto=format&fit=crop&w=900&q=80')"></div>
       <div class="day-image-overlay"></div>
       <div class="day-image-label">特雷維噴泉 · 羅馬</div>
     </div>
@@ -1069,17 +1082,17 @@ footer .footer-title {
         <div class="tl-item">
           <div class="tl-dot-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div>
           <div class="tl-time">早上</div>
-          <div><div class="tl-spot">🪜 西班牙階梯 · 特雷維噴泉</div><div class="tl-note">早去人少，適合拍照</div></div>
+          <div><div class="tl-spot"><a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Trevi+Fountain+Rome" target="_blank">🪜 西班牙階梯 · 特雷維噴泉</a></div><div class="tl-note">早去人少，適合拍照</div></div>
         </div>
         <div class="tl-item">
           <div class="tl-dot-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div>
           <div class="tl-time">中午</div>
-          <div><div class="tl-spot">⭕ 萬神殿 Pantheon + 周邊午餐</div><div class="tl-note">免費入場，圓洞光線在不同時段有不同角度</div></div>
+          <div><div class="tl-spot"><a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Pantheon+Rome" target="_blank">⭕ 萬神殿 Pantheon + 周邊午餐</a></div><div class="tl-note">免費入場，圓洞光線在不同時段有不同角度</div></div>
         </div>
         <div class="tl-item">
           <div class="tl-dot-wrap"><div class="tl-dot"></div></div>
           <div class="tl-time">下午</div>
-          <div><div class="tl-spot">🌊 納沃納廣場 → 台伯河 → Trastevere 晚餐</div></div>
+          <div><div class="tl-spot"><a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Piazza+Navona+Rome" target="_blank">🌊 納沃納廣場 → 台伯河 → Trastevere 晚餐</a></div></div>
         </div>
       </div>
     </div>
@@ -1088,7 +1101,7 @@ footer .footer-title {
   <!-- Day 14: 競技場 -->
   <div class="day-section reverse">
     <div class="day-image-wrap">
-      <div class="day-image" style="background-image:url('https://images.unsplash.com/photo-1552832230-c0197dd311b5?auto=format&fit=crop&w=900&q=80')"></div>
+      <div class="day-image" style="background-image:url('https://images.unsplash.com/photo-upGZ5p92SHU?auto=format&fit=crop&w=900&q=80')"></div>
       <div class="day-image-overlay"></div>
       <div class="day-image-label">羅馬競技場 · 羅馬</div>
     </div>
@@ -1103,22 +1116,22 @@ footer .footer-title {
         <div class="tl-item">
           <div class="tl-dot-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div>
           <div class="tl-time">08:30</div>
-          <div><div class="tl-spot">🏟 羅馬競技場 Colosseum</div><div class="tl-note">2026/10 開放至 18:30｜⚠ 只從官網購票，避免第三方加價</div></div>
+          <div><div class="tl-spot"><a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Colosseum+Rome" target="_blank">🏟 羅馬競技場 Colosseum</a></div><div class="tl-note">2026/10 開放至 18:30｜⚠ 只從官網購票，避免第三方加價</div></div>
         </div>
         <div class="tl-item">
           <div class="tl-dot-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div>
           <div class="tl-time">10:30</div>
-          <div><div class="tl-spot">🏛 古羅馬廣場 + 帕拉提諾山</div><div class="tl-note">與競技場同票，早上遮蔭少，越早越好</div></div>
+          <div><div class="tl-spot"><a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Roman+Forum+Rome" target="_blank">🏛 古羅馬廣場 + 帕拉提諾山</a></div><div class="tl-note">與競技場同票，早上遮蔭少，越早越好</div></div>
         </div>
         <div class="tl-item">
           <div class="tl-dot-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div>
           <div class="tl-time">下午</div>
-          <div><div class="tl-spot">😮 真理之口 → 卡比托利歐廣場 → 威尼斯廣場</div></div>
+          <div><div class="tl-spot"><a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Bocca+della+Verita+Rome" target="_blank">😮 真理之口 → 卡比托利歐廣場 → 威尼斯廣場</a></div></div>
         </div>
         <div class="tl-item">
           <div class="tl-dot-wrap"><div class="tl-dot"></div></div>
           <div class="tl-time">晚上</div>
-          <div><div class="tl-spot">🌙 特雷維噴泉夜景</div><div class="tl-note">夜燈下的藍色水光和白天完全不同，值得再訪</div></div>
+          <div><div class="tl-spot"><a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Trevi+Fountain+Rome" target="_blank">🌙 特雷維噴泉夜景</a></div><div class="tl-note">夜燈下的藍色水光和白天完全不同，值得再訪</div></div>
         </div>
       </div>
     </div>
@@ -1127,9 +1140,9 @@ footer .footer-title {
   <!-- Day 15: Outlet -->
   <div class="day-section">
     <div class="day-image-wrap">
-      <div class="day-image" style="background-image:url('https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=900&q=80')"></div>
+      <div class="day-image" style="background-image:url('https://images.unsplash.com/photo-KTdJQKJYMx0?auto=format&fit=crop&w=900&q=80')"></div>
       <div class="day-image-overlay"></div>
-      <div class="day-image-label">Shopping · Castel Romano</div>
+      <div class="day-image-label">西班牙階梯 · 羅馬</div>
     </div>
     <div class="day-content-wrap">
       <div class="day-eyebrow">
@@ -1142,7 +1155,7 @@ footer .footer-title {
         <div class="tl-item">
           <div class="tl-dot-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div>
           <div class="tl-time">09:30</div>
-          <div><div class="tl-spot">搭接駁車出發</div><div class="tl-note">Termini Via Giolitti 48，班次：09:30 / 10:30 / 11:30</div></div>
+          <div><div class="tl-spot"><a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Castel+Romano+Designer+Outlet+Rome" target="_blank">搭接駁車 → Castel Romano Designer Outlet</a></div><div class="tl-note">Termini Via Giolitti 48，班次：09:30 / 10:30 / 11:30</div></div>
         </div>
         <div class="tl-item">
           <div class="tl-dot-wrap"><div class="tl-dot"></div></div>
@@ -1157,9 +1170,9 @@ footer .footer-title {
   <!-- Day 16-17: Return -->
   <div class="day-section reverse">
     <div class="day-image-wrap">
-      <div class="day-image" style="background-image:url('https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=900&q=80')"></div>
+      <div class="day-image" style="background-image:url('https://images.unsplash.com/photo-0RaZmPQQQrA?auto=format&fit=crop&w=900&q=80')"></div>
       <div class="day-image-overlay"></div>
-      <div class="day-image-label">返程</div>
+      <div class="day-image-label">聖天使城堡 · 再見羅馬</div>
     </div>
     <div class="day-content-wrap">
       <div class="day-eyebrow">
