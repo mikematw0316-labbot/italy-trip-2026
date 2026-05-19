@@ -149,7 +149,7 @@ body {
   text-align: center;
   white-space: nowrap;
 }
-.city-nav a:hover { color: var(--dark); border-bottom-color: var(--gold); }
+.city-nav a:hover, .city-nav a.active { color: var(--dark); border-bottom-color: var(--gold); }
 
 /* Map links */
 .map-link {
@@ -1227,5 +1227,38 @@ footer .footer-title {
   <p>米蘭 · 威尼斯 · 佛羅倫斯 · 羅馬 · 17 天 · 無數記憶</p>
 </footer>
 
+
+<script>
+(function() {
+  const sections = ['checklist','milan','venice','florence','rome','summary'];
+  const navLinks = {};
+  sections.forEach(id => {
+    const el = document.querySelector('.city-nav a[href="#' + id + '"]');
+    if (el) navLinks[id] = el;
+  });
+
+  function setActive(id) {
+    Object.values(navLinks).forEach(a => {
+      a.style.color = '';
+      a.style.borderBottomColor = '';
+    });
+    if (navLinks[id]) {
+      navLinks[id].style.color = 'var(--dark)';
+      navLinks[id].style.borderBottomColor = 'var(--gold)';
+    }
+  }
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) setActive(entry.target.id);
+    });
+  }, { rootMargin: '-30% 0px -60% 0px', threshold: 0 });
+
+  sections.forEach(id => {
+    const el = document.getElementById(id);
+    if (el) observer.observe(el);
+  });
+})();
+</script>
 </body>
 </html>
