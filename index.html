@@ -36,7 +36,7 @@ body {
 }
 .hero-img {
   position: absolute; inset: 0;
-  background-image: url('https://images.unsplash.com/photo-VFRTXGw1VjU?auto=format&fit=crop&w=1800&q=85');
+  background-image: url('https://images.unsplash.com/photo-1552832230-c0197dd311b5?auto=format&fit=crop&w=1800&q=85');
   background-size: cover;
   background-position: center 40%;
   transform: scale(1.05);
@@ -133,14 +133,11 @@ body {
   backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--light-stone);
   display: flex;
-  overflow-x: auto;
-  scrollbar-width: none;
-  padding: 0 5vw;
+  padding: 0;
 }
-.city-nav::-webkit-scrollbar { display: none; }
 .city-nav a {
-  flex: 0 0 auto;
-  padding: 16px 20px;
+  flex: 1;
+  padding: 16px 8px;
   text-decoration: none;
   color: var(--stone);
   font-size: 0.82rem;
@@ -148,11 +145,8 @@ body {
   letter-spacing: 0.5px;
   border-bottom: 2px solid transparent;
   transition: all 0.2s;
-  white-space: nowrap;
-}
-.city-nav a.nav-city {
-  flex: 1;
   text-align: center;
+  white-space: nowrap;
 }
 .city-nav a:hover { color: var(--dark); border-bottom-color: var(--gold); }
 
@@ -616,10 +610,10 @@ footer .footer-title {
 <section class="city-block" id="milan">
 
   <div class="city-hero">
-    <div class="city-hero-img" style="background-image:url('https://images.unsplash.com/photo-m5Ewuy9ZKVg?auto=format&fit=crop&w=1800&q=85')"></div>
+    <div class="city-hero-img" style="background-image:url('https://images.unsplash.com/photo-1575399877732-9363881b907e?auto=format&fit=crop&w=1800&q=85')"></div>
     <div class="city-hero-overlay"></div>
     <div class="city-hero-content">
-      <span class="city-tag">🔴 City 01</span>
+      <span class="city-tag">City 01</span>
       <h2 class="city-hero-name">Milano</h2>
       <p class="city-hero-sub">9/26（六）— 9/28（一）· 2 晚 · 時尚之都</p>
       <p class="city-hero-hotel">🏨 <strong>米蘭 7BA 飯店</strong>｜Corso Buenos Aires — 2025 新建，位置好，生活機能佳</p>
@@ -629,7 +623,7 @@ footer .footer-title {
   <!-- Day 2: 最後的晚餐 + 古堡 -->
   <div class="day-section">
     <div class="day-image-wrap">
-      <div class="day-image" style="background-image:url('https://images.unsplash.com/photo-dgLr77nLctg?auto=format&fit=crop&w=900&q=80')"></div>
+      <div class="day-image" style="background-image:url('https://images.unsplash.com/photo-1566662961381-8ff13ac24766?auto=format&fit=crop&w=900&q=80')"></div>
       <div class="day-image-overlay"></div>
       <div class="day-image-label">米蘭大教堂 · 米蘭</div>
     </div>
@@ -668,7 +662,7 @@ footer .footer-title {
   <!-- Day 3: 大教堂 + 精品街 -->
   <div class="day-section reverse">
     <div class="day-image-wrap">
-      <div class="day-image" style="background-image:url('https://images.unsplash.com/photo-WliQqJtYpLA?auto=format&fit=crop&w=900&q=80')"></div>
+      <div class="day-image" style="background-image:url('https://images.unsplash.com/photo-1667330251984-7cb9ec5cde80?auto=format&fit=crop&w=900&q=80')"></div>
       <div class="day-image-overlay"></div>
       <div class="day-image-label">埃馬努埃萊二世拱廊 · 米蘭</div>
     </div>
@@ -711,10 +705,10 @@ footer .footer-title {
 <section class="city-block" id="venice">
 
   <div class="city-hero">
-    <div class="city-hero-img" style="background-image:url('https://images.unsplash.com/photo-s9u-sBJiRnE?auto=format&fit=crop&w=1800&q=85')"></div>
+    <div class="city-hero-img" style="background-image:url('https://images.unsplash.com/photo-1511892964110-b714f7dabcde?auto=format&fit=crop&w=1800&q=85')"></div>
     <div class="city-hero-overlay"></div>
     <div class="city-hero-content">
-      <span class="city-tag">🔵 City 02</span>
+      <span class="city-tag">City 02</span>
       <h2 class="city-hero-name">Venezia</h2>
       <p class="city-hero-sub">9/28（一）— 10/1（四）· 3 晚 · 水上迷宮</p>
       <p class="city-hero-hotel">🏨 <strong>Hotel Rio</strong>｜Campo SS. Filippo e Giacomo, Castello — 近聖馬可，本島核心</p>
@@ -724,7 +718,7 @@ footer .footer-title {
   <!-- Day 4: 移動 + Rialto -->
   <div class="day-section">
     <div class="day-image-wrap">
-      <div class="day-image" style="background-image:url('https://images.unsplash.com/photo-hFXZ5cNfkOk?auto=format&fit=crop&w=900&q=80')"></div>
+      <div class="day-image" style="background-image:url('https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?auto=format&fit=crop&w=900&q=80')"></div>
       <div class="day-image-overlay"></div>
       <div class="day-image-label">里阿爾托橋 · 威尼斯</div>
     </div>
@@ -763,7 +757,7 @@ footer .footer-title {
   <!-- Day 5: 聖馬可 -->
   <div class="day-section reverse">
     <div class="day-image-wrap">
-      <div class="day-image" style="background-image:url('https://images.unsplash.com/photo-yoz36gllbmM?auto=format&fit=crop&w=900&q=80')"></div>
+      <div class="day-image" style="background-image:url('https://images.unsplash.com/photo-1511135570219-bbad9a02f103?auto=format&fit=crop&w=900&q=80')"></div>
       <div class="day-image-overlay"></div>
       <div class="day-image-label">聖馬可廣場 · 威尼斯</div>
     </div>
@@ -797,7 +791,7 @@ footer .footer-title {
   <!-- Day 6: Dorsoduro -->
   <div class="day-section">
     <div class="day-image-wrap">
-      <div class="day-image" style="background-image:url('https://images.unsplash.com/photo-cZ6-FXVNj7k?auto=format&fit=crop&w=900&q=80')"></div>
+      <div class="day-image" style="background-image:url('https://images.unsplash.com/photo-1758455995320-9f95354cd30a?auto=format&fit=crop&w=900&q=80')"></div>
       <div class="day-image-overlay"></div>
       <div class="day-image-label">安康聖母教堂 · 威尼斯</div>
     </div>
@@ -839,10 +833,10 @@ footer .footer-title {
 <section class="city-block" id="florence">
 
   <div class="city-hero">
-    <div class="city-hero-img" style="background-image:url('https://images.unsplash.com/photo-52kexp8M13c?auto=format&fit=crop&w=1800&q=85')"></div>
+    <div class="city-hero-img" style="background-image:url('https://images.unsplash.com/photo-1759088253305-72cdfb01298e?auto=format&fit=crop&w=1800&q=85')"></div>
     <div class="city-hero-overlay"></div>
     <div class="city-hero-content">
-      <span class="city-tag">🟠 City 03</span>
+      <span class="city-tag">City 03</span>
       <h2 class="city-hero-name">Firenze</h2>
       <p class="city-hero-sub">10/1（四）— 10/5（一）· 4 晚 · 文藝復興之都</p>
       <p class="city-hero-hotel">🏨 <strong>佛羅倫斯 MH 水療飯店</strong> → <strong>阿特米德旅館</strong>｜SMN 車站周邊，移動超方便</p>
@@ -852,7 +846,7 @@ footer .footer-title {
   <!-- Day 7: 移動 + 烏菲茲 + 老橋 -->
   <div class="day-section">
     <div class="day-image-wrap">
-      <div class="day-image" style="background-image:url('https://images.unsplash.com/photo-fXBqmu1Bzzg?auto=format&fit=crop&w=900&q=80')"></div>
+      <div class="day-image" style="background-image:url('https://images.unsplash.com/photo-1777324369706-609d83aece87?auto=format&fit=crop&w=900&q=80')"></div>
       <div class="day-image-overlay"></div>
       <div class="day-image-label">老橋日落 · 佛羅倫斯</div>
     </div>
@@ -887,7 +881,7 @@ footer .footer-title {
   <!-- Day 8: 大衛像 -->
   <div class="day-section reverse">
     <div class="day-image-wrap">
-      <div class="day-image" style="background-image:url('https://images.unsplash.com/photo-nLJzoLp7gbU?auto=format&fit=crop&w=900&q=80')"></div>
+      <div class="day-image" style="background-image:url('https://images.unsplash.com/photo-1779120690231-5dda93531065?auto=format&fit=crop&w=900&q=80')"></div>
       <div class="day-image-overlay"></div>
       <div class="day-image-label">阿諾河畔 · 佛羅倫斯</div>
     </div>
@@ -921,7 +915,7 @@ footer .footer-title {
   <!-- Day 9: 百花聖殿 + 米開朗基羅廣場 -->
   <div class="day-section">
     <div class="day-image-wrap">
-      <div class="day-image" style="background-image:url('https://images.unsplash.com/photo-AVQUqyNYZMM?auto=format&fit=crop&w=900&q=80')"></div>
+      <div class="day-image" style="background-image:url('https://images.unsplash.com/photo-1693211064686-df121f6528ce?auto=format&fit=crop&w=900&q=80')"></div>
       <div class="day-image-overlay"></div>
       <div class="day-image-label">米開朗基羅廣場夕陽 · 佛羅倫斯</div>
     </div>
@@ -984,10 +978,10 @@ footer .footer-title {
 <section class="city-block" id="rome">
 
   <div class="city-hero">
-    <div class="city-hero-img" style="background-image:url('https://images.unsplash.com/photo-l0Ii4WaROS8?auto=format&fit=crop&w=1800&q=85')"></div>
+    <div class="city-hero-img" style="background-image:url('https://images.unsplash.com/photo-1576507271147-48237d97f182?auto=format&fit=crop&w=1800&q=85')"></div>
     <div class="city-hero-overlay"></div>
     <div class="city-hero-content">
-      <span class="city-tag">🟡 City 04</span>
+      <span class="city-tag">City 04</span>
       <h2 class="city-hero-name">Roma</h2>
       <p class="city-hero-sub">10/5（一）— 10/10（六）· 5 晚 · 永恆之城</p>
       <p class="city-hero-hotel">🏨 <strong>馬焦雷聖瑪麗住宿加早餐旅館</strong>｜Via Santa Prassede 8, Monti — 景點 + 車站都近</p>
@@ -997,7 +991,7 @@ footer .footer-title {
   <!-- Day 11: 移動 + 摩西像 -->
   <div class="day-section">
     <div class="day-image-wrap">
-      <div class="day-image" style="background-image:url('https://images.unsplash.com/photo-reyrEqzQrj4?auto=format&fit=crop&w=900&q=80')"></div>
+      <div class="day-image" style="background-image:url('https://images.unsplash.com/photo-1511713242480-1fc71db2c0ad?auto=format&fit=crop&w=900&q=80')"></div>
       <div class="day-image-overlay"></div>
       <div class="day-image-label">聖伯多祿大殿夕陽 · 羅馬</div>
     </div>
@@ -1032,7 +1026,7 @@ footer .footer-title {
   <!-- Day 12: 梵蒂岡 -->
   <div class="day-section reverse">
     <div class="day-image-wrap">
-      <div class="day-image" style="background-image:url('https://images.unsplash.com/photo-mJDuO7CzO74?auto=format&fit=crop&w=900&q=80')"></div>
+      <div class="day-image" style="background-image:url('https://images.unsplash.com/photo-1523020286969-4de832476819?auto=format&fit=crop&w=900&q=80')"></div>
       <div class="day-image-overlay"></div>
       <div class="day-image-label">梵蒂岡聖伯多祿大殿 · 羅馬</div>
     </div>
@@ -1067,7 +1061,7 @@ footer .footer-title {
   <!-- Day 13: 噴泉廣場 -->
   <div class="day-section">
     <div class="day-image-wrap">
-      <div class="day-image" style="background-image:url('https://images.unsplash.com/photo-Eh8fAucoGRc?auto=format&fit=crop&w=900&q=80')"></div>
+      <div class="day-image" style="background-image:url('https://images.unsplash.com/photo-1764947810288-079f2cb6f419?auto=format&fit=crop&w=900&q=80')"></div>
       <div class="day-image-overlay"></div>
       <div class="day-image-label">特雷維噴泉 · 羅馬</div>
     </div>
@@ -1101,7 +1095,7 @@ footer .footer-title {
   <!-- Day 14: 競技場 -->
   <div class="day-section reverse">
     <div class="day-image-wrap">
-      <div class="day-image" style="background-image:url('https://images.unsplash.com/photo-upGZ5p92SHU?auto=format&fit=crop&w=900&q=80')"></div>
+      <div class="day-image" style="background-image:url('https://images.unsplash.com/photo-1460722665083-c2599113f7e0?auto=format&fit=crop&w=900&q=80')"></div>
       <div class="day-image-overlay"></div>
       <div class="day-image-label">羅馬競技場 · 羅馬</div>
     </div>
@@ -1140,7 +1134,7 @@ footer .footer-title {
   <!-- Day 15: Outlet -->
   <div class="day-section">
     <div class="day-image-wrap">
-      <div class="day-image" style="background-image:url('https://images.unsplash.com/photo-KTdJQKJYMx0?auto=format&fit=crop&w=900&q=80')"></div>
+      <div class="day-image" style="background-image:url('https://images.unsplash.com/photo-1758811541618-cded410fb854?auto=format&fit=crop&w=900&q=80')"></div>
       <div class="day-image-overlay"></div>
       <div class="day-image-label">西班牙階梯 · 羅馬</div>
     </div>
@@ -1170,7 +1164,7 @@ footer .footer-title {
   <!-- Day 16-17: Return -->
   <div class="day-section reverse">
     <div class="day-image-wrap">
-      <div class="day-image" style="background-image:url('https://images.unsplash.com/photo-0RaZmPQQQrA?auto=format&fit=crop&w=900&q=80')"></div>
+      <div class="day-image" style="background-image:url('https://images.unsplash.com/photo-1565537616283-221109348b0d?auto=format&fit=crop&w=900&q=80')"></div>
       <div class="day-image-overlay"></div>
       <div class="day-image-label">聖天使城堡 · 再見羅馬</div>
     </div>
@@ -1190,12 +1184,12 @@ footer .footer-title {
         <div class="tl-item">
           <div class="tl-dot-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div>
           <div class="tl-time">08:35</div>
-          <div><div class="tl-spot">✈ 羅馬 → 慕尼黑 T2（10:00 抵）</div></div>
+          <div><div class="tl-spot">✈ 羅馬 → 慕尼黑 T2（10:00 抵達）</div></div>
         </div>
         <div class="tl-item">
           <div class="tl-dot-wrap"><div class="tl-dot"></div></div>
           <div class="tl-time">12:00</div>
-          <div><div class="tl-spot">✈ 慕尼黑 → 台北 T2（10/11 06:35 抵）</div></div>
+          <div><div class="tl-spot">✈ 慕尼黑 → 台北 T2（10/11 06:35 抵達）</div></div>
         </div>
       </div>
     </div>
