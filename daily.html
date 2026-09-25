@@ -37,6 +37,8 @@
   .chip.active[data-c="florence"]{background:var(--florence);border-color:var(--florence)}
   .chip.active[data-c="rome"]{background:var(--rome);border-color:var(--rome)}
   .chip.active[data-c="transit"]{background:var(--transit);border-color:var(--transit)}
+  .chip.is-today::after{content:"今日"; font-size:.52rem; font-weight:900; background:var(--lock); color:var(--lock-ink); padding:.02rem .2rem; border-radius:4px; margin-left:.1rem}
+  .todaypill{display:inline-block; font-size:.6rem; font-weight:900; background:var(--lock); color:var(--lock-ink); padding:.05rem .4rem; border-radius:6px; margin-left:.4rem; vertical-align:middle}
 
   .deck{height:100dvh; overflow-y:scroll; scroll-snap-type:y mandatory; scroll-behavior:smooth; scrollbar-width:none}
   .deck::-webkit-scrollbar{display:none}
@@ -262,6 +264,27 @@ const io=new IntersectionObserver(es=>{es.forEach(e=>{ if(e.isIntersecting){
   counter.textContent=(i+1)+" / "+DAYS.length; hint.style.opacity=i===0?"1":"0";
 }});},{root:deck,threshold:.55});
 slides.forEach(s=>io.observe(s));
+
+// ── 偵測今天,開啟自動跳到當天 ──
+const _toD=s=>{const[m,d]=s.split("/").map(Number); return new Date(2026,m-1,d).getTime();};
+const _now=new Date();
+const _cmp=new Date(2026,_now.getMonth(),_now.getDate()).getTime(); // 以行程年份 2026 對月/日
+const exactIdx=DAYS.findIndex(d=>_toD(d.date)===_cmp);              // 恰為旅程中某天,否則 -1
+const tIdx = exactIdx>=0 ? exactIdx
+  : _cmp < _toD(DAYS[0].date) ? 0                                   // 行程前 → 第 1 天
+  : _cmp > _toD(DAYS[DAYS.length-1].date) ? DAYS.length-1           // 行程後 → 最後一天
+  : 0;
+if(exactIdx>=0){                                                    // 只有真的是今天才標「今日」
+  chips[exactIdx].classList.add("is-today");
+  const th=slides[exactIdx].querySelector(".s-date");
+  if(th) th.insertAdjacentHTML("beforeend",' <span class="todaypill">今日</span>');
+}
+// 開啟即定位到今天(不用平滑,直接開在那頁)
+requestAnimationFrame(()=>{
+  slides[tIdx].scrollIntoView({behavior:"auto"});
+  chips[tIdx].scrollIntoView({behavior:"auto",inline:"center",block:"nearest"});
+  counter.textContent=(tIdx+1)+" / "+DAYS.length;
+});
 </script>
 </body>
 </html>
