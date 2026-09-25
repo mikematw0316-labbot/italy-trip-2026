@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, maximum-scale=1">
 <title>義大利每日行程 · 2026</title>
-<meta name="description" content="義大利 17 天每日行程 — 一天一頁,手機簡報式速查">
+<meta name="description" content="義大利 17 天每日行程 — 一天一頁,手機簡報式時間軸">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
@@ -12,116 +12,88 @@
   :root{
     --paper:#f6f2ea; --ink:#221d17; --ink-soft:#736a5e; --line:#e6ded0;
     --card:#fffdf9; --gold:#b98a3e;
+    --lock:#ffe64a; --lock-edge:#e9c400; --lock-ink:#3a2e05;
     --milan:#c0392b; --venice:#1f6f8b; --florence:#c9702a; --rome:#8a6d1f; --transit:#7d7468;
-    --nav-h:46px;
-    --ease:cubic-bezier(.16,1,.3,1);
+    --nav-h:46px; --ease:cubic-bezier(.16,1,.3,1);
   }
   *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
   html,body{height:100%}
-  body{
-    background:var(--paper); color:var(--ink);
-    font-family:'Noto Sans TC',system-ui,sans-serif; line-height:1.5;
-    -webkit-font-smoothing:antialiased; overflow:hidden;
-  }
+  body{background:var(--paper); color:var(--ink); font-family:'Noto Sans TC',system-ui,sans-serif;
+    line-height:1.45; -webkit-font-smoothing:antialiased; overflow:hidden}
 
-  /* ── top day switcher (fixed) ── */
-  .daynav{
-    position:fixed; top:0; left:0; right:0; z-index:50; height:calc(var(--nav-h) + env(safe-area-inset-top));
-    padding-top:env(safe-area-inset-top);
-    background:rgba(246,242,234,.9); backdrop-filter:blur(12px); border-bottom:1px solid var(--line);
-  }
+  .daynav{position:fixed; top:0; left:0; right:0; z-index:50; height:calc(var(--nav-h) + env(safe-area-inset-top));
+    padding-top:env(safe-area-inset-top); background:rgba(246,242,234,.9); backdrop-filter:blur(12px); border-bottom:1px solid var(--line)}
   .daynav-inner{display:flex; gap:.35rem; overflow-x:auto; padding:.4rem .6rem; height:var(--nav-h); scrollbar-width:none}
   .daynav-inner::-webkit-scrollbar{display:none}
-  .chip{
-    flex:0 0 auto; display:flex; align-items:center; gap:.3rem; height:34px; padding:0 .6rem;
-    border-radius:10px; background:var(--card); border:1px solid var(--line);
-    text-decoration:none; color:var(--ink-soft); font-size:.72rem; font-weight:700;
-    transition:background .3s, color .3s, border-color .3s;
-  }
+  .chip{flex:0 0 auto; display:flex; align-items:center; gap:.3rem; height:34px; padding:0 .6rem; border-radius:10px;
+    background:var(--card); border:1px solid var(--line); text-decoration:none; color:var(--ink-soft); font-size:.72rem; font-weight:700;
+    transition:background .3s,color .3s,border-color .3s}
   .chip .cn{font-family:'Playfair Display',serif; font-weight:900; font-size:.95rem}
   .chip[data-c="milan"] .cn{color:var(--milan)} .chip[data-c="venice"] .cn{color:var(--venice)}
-  .chip[data-c="florence"] .cn{color:var(--florence)} .chip[data-c="rome"] .cn{color:var(--rome)}
-  .chip[data-c="transit"] .cn{color:var(--transit)}
-  .chip.active{color:#fff}
-  .chip.active .cn{color:#fff}
+  .chip[data-c="florence"] .cn{color:var(--florence)} .chip[data-c="rome"] .cn{color:var(--rome)} .chip[data-c="transit"] .cn{color:var(--transit)}
+  .chip.active{color:#fff} .chip.active .cn{color:#fff}
   .chip.active[data-c="milan"]{background:var(--milan);border-color:var(--milan)}
   .chip.active[data-c="venice"]{background:var(--venice);border-color:var(--venice)}
   .chip.active[data-c="florence"]{background:var(--florence);border-color:var(--florence)}
   .chip.active[data-c="rome"]{background:var(--rome);border-color:var(--rome)}
   .chip.active[data-c="transit"]{background:var(--transit);border-color:var(--transit)}
 
-  /* ── slide deck ── */
-  .deck{
-    height:100dvh; overflow-y:scroll; scroll-snap-type:y mandatory;
-    scroll-behavior:smooth; scrollbar-width:none;
-  }
+  .deck{height:100dvh; overflow-y:scroll; scroll-snap-type:y mandatory; scroll-behavior:smooth; scrollbar-width:none}
   .deck::-webkit-scrollbar{display:none}
-  .slide{
-    height:100dvh; scroll-snap-align:start; scroll-snap-stop:always;
-    position:relative; overflow:hidden;
-    padding:calc(var(--nav-h) + env(safe-area-inset-top) + .5rem) 1.05rem calc(1rem + env(safe-area-inset-bottom));
-    display:flex; flex-direction:column;
-  }
+  .slide{height:100dvh; scroll-snap-align:start; scroll-snap-stop:always; position:relative; overflow:hidden;
+    padding:calc(var(--nav-h) + env(safe-area-inset-top) + .5rem) 1rem calc(.8rem + env(safe-area-inset-bottom));
+    display:flex; flex-direction:column}
   .slide[data-c="milan"]{--accent:var(--milan)} .slide[data-c="venice"]{--accent:var(--venice)}
-  .slide[data-c="florence"]{--accent:var(--florence)} .slide[data-c="rome"]{--accent:var(--rome)}
-  .slide[data-c="transit"]{--accent:var(--transit)}
-  .slide::before{  /* soft city-tint top wash */
-    content:""; position:absolute; inset:0 0 auto 0; height:42%;
-    background:linear-gradient(180deg, color-mix(in oklab, var(--accent) 14%, transparent), transparent);
-    pointer-events:none;
-  }
-  .wm{ /* giant faint day number */
-    position:absolute; right:-.5rem; top:calc(var(--nav-h) + 8%); z-index:0;
-    font-family:'Playfair Display',serif; font-weight:900; font-size:44vw; line-height:.8;
-    color:var(--accent); opacity:.07; pointer-events:none; user-select:none;
-  }
-  .content{position:relative; z-index:1; display:flex; flex-direction:column; height:100%; min-height:0; justify-content:space-between; gap:.3rem}
+  .slide[data-c="florence"]{--accent:var(--florence)} .slide[data-c="rome"]{--accent:var(--rome)} .slide[data-c="transit"]{--accent:var(--transit)}
+  .slide::before{content:""; position:absolute; inset:0 0 auto 0; height:38%;
+    background:linear-gradient(180deg,color-mix(in oklab,var(--accent) 13%,transparent),transparent); pointer-events:none}
+  .wm{position:absolute; right:-.4rem; top:calc(var(--nav-h) + 6%); z-index:0; font-family:'Playfair Display',serif;
+    font-weight:900; font-size:42vw; line-height:.8; color:var(--accent); opacity:.06; pointer-events:none; user-select:none}
+  .content{position:relative; z-index:1; display:flex; flex-direction:column; height:100%; min-height:0}
 
-  /* header */
-  .s-head{display:flex; align-items:center; gap:.6rem}
-  .s-daytag{font-family:'Playfair Display',serif; font-weight:900; font-size:.9rem; color:var(--accent);
-    border:1.5px solid var(--accent); border-radius:8px; padding:.05rem .45rem}
-  .s-date{font-size:.82rem; color:var(--ink-soft); font-weight:700}
-  .s-city{font-family:'Playfair Display',serif; font-weight:900; font-size:clamp(1.9rem,7.5vw,2.4rem); color:var(--accent); line-height:1.05; margin-top:.35rem}
-  .s-title{font-size:.98rem; font-weight:700; line-height:1.4; margin-top:.15rem}
-  .s-title.big{font-size:1.15rem}
+  .s-head{display:flex; align-items:center; gap:.55rem}
+  .s-daytag{font-family:'Playfair Display',serif; font-weight:900; font-size:.85rem; color:var(--accent);
+    border:1.5px solid var(--accent); border-radius:8px; padding:.03rem .45rem}
+  .s-date{font-size:.8rem; color:var(--ink-soft); font-weight:700}
+  .s-city{font-family:'Playfair Display',serif; font-weight:900; font-size:clamp(1.7rem,6.8vw,2.2rem); color:var(--accent); line-height:1.05; margin-top:.25rem}
+  .s-title{font-size:.9rem; font-weight:700; color:var(--ink-soft); line-height:1.35; margin-top:.1rem}
 
-  /* generic compact block */
-  .grp{margin-top:.7rem}
-  .lbl{font-size:.64rem; font-weight:900; letter-spacing:.16em; color:var(--ink-soft); margin-bottom:.35rem; display:flex; align-items:center; gap:.35rem}
-
-  .spots{display:flex; flex-wrap:wrap; gap:.32rem}
-  .spot{background:var(--card); border:1px solid var(--line); border-radius:999px; padding:.22rem .6rem;
-    font-size:.8rem; font-weight:500; color:var(--ink); text-decoration:none; display:inline-flex; align-items:center; gap:.28rem}
-  .spot .pin{color:var(--accent); font-size:.6rem}
-
-  .lines{background:var(--card); border:1px solid var(--line); border-radius:12px; padding:.35rem .7rem}
-  .li{display:flex; gap:.55rem; align-items:baseline; padding:.3rem 0; border-bottom:1px dashed var(--line); font-size:.85rem}
-  .li:last-child{border-bottom:0}
-  .li .t{flex:0 0 auto; font-family:'Playfair Display',serif; font-weight:700; color:var(--accent); min-width:56px; font-size:.85rem}
-  .li .x{flex:1; min-width:0}
-  .li .x .n{font-weight:700}
-  .li .x .n a{color:inherit; text-decoration:none; border-bottom:1.5px solid var(--accent)}
-  .li .x .s{font-size:.72rem; color:var(--ink-soft)}
-  .tag{font-size:.6rem; font-weight:800; padding:.05rem .35rem; border-radius:5px; margin-left:.3rem; white-space:nowrap}
+  /* timeline */
+  .tl{flex:1; min-height:0; display:flex; flex-direction:column; justify-content:space-between; gap:.4rem; margin:.55rem 0; padding:.2rem 0}
+  .ev{display:flex; gap:.5rem; align-items:stretch; background:var(--card); border:1px solid var(--line);
+    border-radius:11px; padding:.4rem .55rem; text-decoration:none; color:var(--ink)}
+  .ev .et{flex:0 0 auto; width:50px; text-align:center; font-family:'Playfair Display',serif; font-weight:700;
+    font-size:.9rem; color:var(--accent); display:flex; flex-direction:column; justify-content:center; line-height:1}
+  .ev .eb{flex:1; min-width:0; display:flex; flex-direction:column; justify-content:center}
+  .ev .en{font-size:.9rem; font-weight:700; line-height:1.25; display:flex; align-items:center; gap:.3rem; flex-wrap:wrap}
+  .ev .es{font-size:.7rem; color:var(--ink-soft); line-height:1.3; margin-top:.05rem}
+  .ico{flex:0 0 auto; font-size:.78rem}
+  .tag{font-size:.6rem; font-weight:800; padding:.03rem .32rem; border-radius:5px; white-space:nowrap}
   .tag.ok{background:rgba(40,140,70,.15); color:#2e7d46}
   .tag.warn{background:rgba(200,120,20,.18); color:#b3670e}
-  .tag.plan{background:rgba(120,110,100,.15); color:#6b6258}
+  .tag.plan{background:rgba(120,110,100,.14); color:#6b6258}
 
-  /* footer strip: outfit + hotel */
-  .strip{padding-top:.5rem; display:flex; flex-direction:column; gap:.3rem}
-  .fx{display:flex; gap:.5rem; align-items:flex-start; font-size:.8rem; background:var(--card); border:1px solid var(--line); border-radius:10px; padding:.4rem .6rem}
-  .fx .ic{flex:0 0 auto}
+  /* LOCKED (purchased ticket / booked train) — bright yellow emphasis */
+  .ev.lock{background:linear-gradient(90deg,#fff6bf,var(--lock)); border-color:var(--lock-edge);
+    box-shadow:0 3px 10px -3px rgba(220,180,10,.55)}
+  .ev.lock .et{color:var(--lock-ink)}
+  .ev.lock .en{color:var(--lock-ink)}
+  .ev.lock .es{color:#6b5a12}
+  .ev.lock .lockpill{font-size:.58rem; font-weight:900; background:var(--lock-ink); color:var(--lock);
+    padding:.03rem .34rem; border-radius:5px; letter-spacing:.03em}
+
+  .strip{display:flex; flex-direction:column; gap:.28rem}
+  .fx{display:flex; gap:.45rem; align-items:flex-start; font-size:.78rem; background:var(--card); border:1px solid var(--line); border-radius:10px; padding:.35rem .55rem}
   .fx a{color:var(--accent); text-decoration:none; font-weight:700}
-  .fx .ad{color:var(--ink-soft); font-size:.72rem}
+  .fx .ad{color:var(--ink-soft); font-size:.7rem}
 
-  /* transit / sparse day hero */
+  /* transit hero */
   .hero-mid{flex:1; display:flex; flex-direction:column; justify-content:center; gap:.9rem; text-align:center}
   .hero-mid .big-ic{font-size:3.2rem}
-  .hero-mid .move-card{background:var(--card); border:1px solid var(--line); border-radius:14px; padding:1rem 1.1rem; font-size:.95rem; line-height:1.6}
+  .hero-mid .move-card{background:var(--card); border:1px solid var(--line); border-radius:14px; padding:1rem; font-size:.95rem; line-height:1.6}
 
-  .counter{position:fixed; right:.8rem; bottom:calc(.7rem + env(safe-area-inset-bottom)); z-index:40;
-    font-size:.72rem; font-weight:800; color:#fff; background:rgba(34,29,23,.7); padding:.2rem .55rem; border-radius:999px; backdrop-filter:blur(6px)}
+  .counter{position:fixed; right:.8rem; bottom:calc(.7rem + env(safe-area-inset-bottom)); z-index:40; font-size:.72rem;
+    font-weight:800; color:#fff; background:rgba(34,29,23,.7); padding:.2rem .55rem; border-radius:999px; backdrop-filter:blur(6px)}
   .hint{position:fixed; left:50%; transform:translateX(-50%); bottom:calc(.7rem + env(safe-area-inset-bottom)); z-index:40;
     font-size:.72rem; color:var(--ink-soft); animation:bob 1.6s var(--ease) infinite; transition:opacity .4s}
   @keyframes bob{0%,100%{transform:translate(-50%,0)}50%{transform:translate(-50%,4px)}}
@@ -132,7 +104,6 @@
 </style>
 </head>
 <body>
-
 <nav class="daynav" aria-label="每日快速切換"><div class="daynav-inner" id="daynav"></div></nav>
 <div class="deck" id="deck"></div>
 <div class="counter" id="counter">1 / 17</div>
@@ -147,115 +118,130 @@ const HOTELS = {
   florence:{name:"Style and Comfort · Florence",addr:"Via degli Orti Oricellari 26, 佛羅倫斯"},
   rome:{name:"Belltower Elegans Guest House",addr:"Via A. Cappellini 3, 00185 羅馬"},
 };
+// k: move|spot|meal|tk ; lock:true => 亮黃強調(已購票/訂位火車,時間不可異動)
 const DAYS = [
  {n:1,date:"9/25",dow:"五",c:"transit",city:"台北 → 米蘭",title:"啟程 · 長榮商務艙紅眼班機",ic:"✈️",
   move:"台北 T2 起飛 <b>23:45</b> · BR0095<br>→ 隔日 <b>07:35</b> 抵米蘭 Malpensa T1"},
- {n:2,date:"9/26",dow:"六",c:"milan",title:"達文西《最後的晚餐》+ 斯福爾扎古堡",
-  spots:["《最後的晚餐》","斯福爾扎古堡","森皮奧內公園"],outfit:"短版寬鬆 + 長褲",hotelKey:"milan",
-  tickets:[{t:"15:00",n:"《最後的晚餐》+ 導覽",s:"2人 · 另 17:45 場",u:"https://tw.trip.com/travel-guide/attraction/milan/santa-maria-delle-grazie-78609"}],
-  lunch:{t:"12:30",n:"Stendhal Brera",b:"ok",s:"已訂 · 4人"},
-  dinner:{t:"19:15",n:"Confine Pizza e Cantina",b:"ok",s:"已訂 · 長褲"}},
- {n:3,date:"9/27",dow:"日",c:"milan",title:"米蘭大教堂 + 拱廊 + 精品街 + Navigli",
-  spots:["米蘭主教座堂(登頂)","二世拱廊","蒙特拿破崙精品街","Navigli 運河"],outfit:"休閒西裝 + 長褲",hotelKey:"milan",
-  tickets:[{t:"09:00",n:"米蘭大教堂",s:"4人 · €104",u:"https://ticket.duomomilano.it/"}],
-  dinner:{t:"19:30",n:"Denis Milano Navigli",b:"ok",s:"已訂 · 開胃酒 Mag/Rita's"}},
- {n:4,date:"9/28",dow:"一",c:"venice",title:"移動 + 聖保羅區 + 里阿爾托橋",
-  move:"🚄 米蘭→威尼斯 Mestre · Trenitalia 09:45–12:00",
-  spots:["里阿爾托橋","聖保羅區 San Polo","ACTV 72h 交通卡"],outfit:"T恤 + 短褲",hotelKey:"venice",
-  lunch:{t:"13:00",n:"Mare Magno",b:"plan",s:"週三公休"},
-  dinner:{t:"19:00",n:"Antico Forno + Acqua e Mais",b:"plan",s:"外帶 · 早點去"}},
- {n:5,date:"9/29",dow:"二",c:"venice",title:"聖馬可廣場 + 學院橋 + 貢多拉",
-  spots:["聖馬可廣場","聖馬可大教堂","學院橋","貢多拉"],outfit:"襯衫 + 長褲",hotelKey:"venice",
-  lunch:{t:"12:00",n:"Trattoria Al Gazzettino",b:"warn",s:"⚠️週二恐公休,建議換店"},
-  dinner:{t:"19:00",n:"Agli Artisti",b:"ok",s:"已訂 · 長褲"}},
- {n:6,date:"9/30",dow:"三",c:"venice",title:"多爾索杜羅區 Dorsoduro",
-  spots:["多爾索杜羅區","安康聖母聖殿","佩姬古根漢美術館"],outfit:"襯衫 + 短褲",hotelKey:"venice",
-  lunch:{t:"12:00",n:"Pizzeria Da Gianni",b:"plan",s:"天天營業"},
-  dinner:{t:"19:00",n:"Ristorante Ca’ Dolfin",b:"plan",s:"建議電話訂"}},
- {n:7,date:"10/1",dow:"四",c:"florence",title:"移動 + 烏菲茲美術館 + 老橋日落",
-  move:"🚄 威尼斯→佛羅倫斯 SMN · Italo 09:20–11:20",
-  spots:["烏菲茲美術館","老橋(日落18:56)"],outfit:"T恤 + 短褲",hotelKey:"florence",
-  tickets:[{t:"15:00",n:"烏菲茲美術館",s:"4人 · €116",u:"https://tickets.uffizi.it/"}],
-  lunch:{t:"12:00",n:"Osteria Pastella",b:"ok",s:"已訂 · 4人"},
-  dinner:{t:"19:00",n:"All’Antico Vinaio",b:"plan",s:"名店三明治 · 排隊"}},
- {n:8,date:"10/2",dow:"五",c:"florence",title:"穹頂 + 新聖母 + 學院美術館(大衛像)",
-  spots:["佛羅倫斯穹頂","新聖母教堂","聖老楞佐+中央市場","大衛像"],outfit:"襯衫外套 + 長褲",hotelKey:"florence",
-  tickets:[{t:"09:00",n:"佛羅倫斯穹頂",s:"€120 · 票可用到10/4,禁背包",u:"https://tickets.duomo.firenze.it/en/store"},
-    {t:"16:00",n:"學院美術館(大衛像)",s:"4人 · €96",u:"https://webshop.b-ticket.com/webshop/webticket/timeslot?tsproduction=4&language=it"}],
-  lunch:{t:"12:00",n:"Trattoria Zà Zà",b:"plan",s:"電話訂"},
-  dinner:{t:"19:00",n:"Arà: è Sicilia",b:"plan",s:"免訂 · 21:00關"}},
- {n:9,date:"10/3",dow:"六",c:"florence",title:"百花聖殿 + 領主廣場 + 舊宮 + 米開朗基羅廣場",
-  spots:["聖母百花聖殿","共和廣場","野豬噴泉","領主廣場+舊宮","米開朗基羅廣場(夕陽)"],outfit:"長褲 · 小正式",hotelKey:"florence",
-  lunch:{t:"12:30",n:"La Bistecca Fiorentina",b:"ok",s:"已訂 · 4人"},
-  dinner:{t:"20:00",n:"Trattoria Dall’Oste (SMN)",b:"ok",s:"已訂 · 4人"}},
- {n:10,date:"10/4",dow:"日",c:"florence",title:"FREE · 佛羅倫斯自由日",ic:"🕊️",
-  spots:["自由行程","彼提宮/波波里花園","皮革市集"],outfit:"T恤 + 短褲",hotelKey:"florence",
-  note:"穹頂票今日仍可用(10/2 起 3 天內)"},
- {n:11,date:"10/5",dow:"一",c:"rome",title:"移動 + 摩西像 + 聖母大殿",
-  move:"🚄 佛羅倫斯→羅馬 Termini · Trenitalia 09:33–11:14",
-  spots:["聖伯多祿鎖鏈堂(摩西像)","聖母大殿"],outfit:"T恤 + 長褲",hotelKey:"rome",
-  lunch:{t:"12:00",n:"Ce Stamo A Pensà",b:"plan",s:"僅現場"},
-  dinner:{t:"19:00",n:"Phở Việt / 华味居",b:"plan",s:"原Monti週一休已改"}},
- {n:12,date:"10/6",dow:"二",c:"rome",title:"梵蒂岡博物館 + 聖伯多祿大殿 + 聖天使城堡",
-  spots:["梵蒂岡博物館","西斯汀禮拜堂","聖伯多祿大殿","聖天使城堡"],outfit:"T恤/格紋 + 長褲",hotelKey:"rome",
-  tickets:[{t:"09:30",n:"梵蒂岡博物館",s:"4人 · Trip 購"}],
-  lunch:{t:"12:00",n:"Forno Feliziani",b:"plan",s:"麵包店"},
-  dinner:{t:"19:30",n:"Ristorante Arlù",b:"ok",s:"已訂 · 長褲"}},
- {n:13,date:"10/7",dow:"三",c:"rome",title:"西班牙階梯 + 特雷維噴泉 + 萬神殿 + 納沃納廣場",
-  spots:["西班牙階梯","特雷維噴泉","萬神殿","納沃納廣場"],outfit:"T恤 + 短褲",hotelKey:"rome",
-  tickets:[{t:"12:00",n:"萬神殿 Pantheon",s:"4人 · €28.28",u:"https://portale.museiitaliani.it/b2c/buyTicketless/33f77159-0acd-40c4-8524-701f33aae108"}],
-  lunch:{t:"13:00",n:"Pane e Salame(帕尼尼)",b:"plan",s:"名店 · 現場"},
-  dinner:{t:"18:00",n:"Tonnarello",b:"plan",s:"不接訂 · 排隊"}},
- {n:14,date:"10/8",dow:"四",c:"rome",title:"真理之口 + 古羅馬廣場 + 羅馬競技場",
-  spots:["真理之口","古羅馬廣場+帕拉提諾","羅馬競技場"],outfit:"唐裝 + 短褲",hotelKey:"rome",
-  tickets:[{t:"08:50",n:"競技場 Full Experience(頂層)",s:"進場08:50 · 頂層票",u:"https://ticketing.colosseo.it/zh/eventi/full-experience-attico/"}],
-  lunch:{t:"13:00",n:"Nonna Betta",b:"plan",s:"猶太區 · 週二休"},
-  dinner:{t:"19:00",n:"Trattoria Vecchia Roma",b:"plan",s:"電話訂"}},
- {n:15,date:"10/9",dow:"五",c:"rome",title:"Outlet 購物日",ic:"🛍️",
-  spots:["Castel Romano Designer Outlet"],outfit:"輕便好走",hotelKey:"rome",
-  note:"血拚日 · 建議帶大空袋 / 留行李空間"},
+ {n:2,date:"9/26",dow:"六",c:"milan",title:"達文西《最後的晚餐》· 斯福爾扎古堡",outfit:"短版寬鬆 + 長褲",hotelKey:"milan",plan:[
+  {t:"12:00",k:"move",n:"抵米蘭 · 進城放行李",s:"Malpensa Express → 市區"},
+  {t:"12:30",k:"meal",n:"午餐 Stendhal Brera",tag:"ok",s:"已訂 · 4人"},
+  {t:"15:00",k:"tk",lock:1,n:"《最後的晚餐》+ 導覽",s:"2人 · 另有 17:45 場",u:"https://tw.trip.com/travel-guide/attraction/milan/santa-maria-delle-grazie-78609"},
+  {t:"16:30",k:"spot",n:"斯福爾扎古堡 + 森皮奧內公園"},
+  {t:"19:15",k:"meal",n:"晚餐 Confine Pizza e Cantina",tag:"ok",s:"已訂 · 穿長褲"}]},
+ {n:3,date:"9/27",dow:"日",c:"milan",title:"米蘭大教堂 · 精品街 · Navigli",outfit:"休閒西裝 + 長褲",hotelKey:"milan",plan:[
+  {t:"09:00",k:"tk",lock:1,n:"米蘭大教堂(登頂)",s:"4人 · €104",u:"https://ticket.duomomilano.it/"},
+  {t:"10:30",k:"spot",n:"埃馬努埃萊二世拱廊"},
+  {t:"11:30",k:"spot",n:"蒙特拿破崙精品街"},
+  {t:"18:00",k:"spot",n:"Navigli 運河散步"},
+  {t:"19:30",k:"meal",n:"晚餐 Denis Milano Navigli",tag:"ok",s:"已訂 · 開胃酒 Mag/Rita's"}]},
+ {n:4,date:"9/28",dow:"一",c:"venice",title:"移動 · 里阿爾托橋 · 聖保羅區",outfit:"T恤 + 短褲",hotelKey:"venice",plan:[
+  {t:"09:45",k:"move",lock:1,n:"高鐵 米蘭 → 威尼斯 Mestre",s:"Trenitalia 09:45–12:00 · 已購票"},
+  {t:"12:30",k:"spot",n:"購 ACTV 72h 交通卡"},
+  {t:"13:00",k:"meal",n:"午餐 Mare Magno",tag:"plan",s:"週三公休"},
+  {t:"15:00",k:"spot",n:"里阿爾托橋 Rialto"},
+  {t:"16:30",k:"spot",n:"聖保羅區 San Polo"},
+  {t:"19:00",k:"meal",n:"晚餐 Antico Forno + Acqua e Mais",tag:"plan",s:"外帶 · 早點去"}]},
+ {n:5,date:"9/29",dow:"二",c:"venice",title:"聖馬可廣場 · 學院橋 · 貢多拉",outfit:"襯衫 + 長褲",hotelKey:"venice",plan:[
+  {t:"09:30",k:"spot",n:"聖馬可廣場"},
+  {t:"10:00",k:"spot",n:"聖馬可大教堂"},
+  {t:"12:00",k:"meal",n:"午餐 Al Gazzettino",tag:"warn",s:"⚠️ 週二恐公休,建議換店"},
+  {t:"15:00",k:"spot",n:"學院橋"},
+  {t:"17:00",k:"spot",n:"貢多拉"},
+  {t:"19:00",k:"meal",n:"晚餐 Agli Artisti",tag:"ok",s:"已訂 · 長褲"}]},
+ {n:6,date:"9/30",dow:"三",c:"venice",title:"多爾索杜羅區 Dorsoduro",outfit:"襯衫 + 短褲",hotelKey:"venice",plan:[
+  {t:"10:00",k:"spot",n:"多爾索杜羅區 Dorsoduro"},
+  {t:"11:00",k:"spot",n:"安康聖母聖殿"},
+  {t:"12:00",k:"meal",n:"午餐 Pizzeria Da Gianni",tag:"plan",s:"天天營業"},
+  {t:"14:30",k:"spot",n:"佩姬古根漢美術館"},
+  {t:"19:00",k:"meal",n:"晚餐 Ristorante Ca’ Dolfin",tag:"plan",s:"建議電話訂"}]},
+ {n:7,date:"10/1",dow:"四",c:"florence",title:"移動 · 烏菲茲 · 老橋日落",outfit:"T恤 + 短褲",hotelKey:"florence",plan:[
+  {t:"09:20",k:"move",lock:1,n:"高鐵 威尼斯 → 佛羅倫斯 SMN",s:"Italo 09:20–11:20 · 已購票"},
+  {t:"12:00",k:"meal",n:"午餐 Osteria Pastella",tag:"ok",s:"已訂 · 4人"},
+  {t:"15:00",k:"tk",lock:1,n:"烏菲茲美術館",s:"4人 · €116",u:"https://tickets.uffizi.it/"},
+  {t:"18:56",k:"spot",n:"老橋 Ponte Vecchio 日落"},
+  {t:"19:30",k:"meal",n:"晚餐 All’Antico Vinaio",tag:"plan",s:"名店三明治 · 排隊"}]},
+ {n:8,date:"10/2",dow:"五",c:"florence",title:"穹頂 · 新聖母 · 大衛像",outfit:"襯衫外套 + 長褲",hotelKey:"florence",plan:[
+  {t:"09:00",k:"tk",lock:1,n:"佛羅倫斯穹頂 Duomo",s:"€120 · 票可用到10/4 · 禁背包",u:"https://tickets.duomo.firenze.it/en/store"},
+  {t:"10:30",k:"spot",n:"新聖母教堂 SMN"},
+  {t:"12:00",k:"meal",n:"午餐 Trattoria Zà Zà",tag:"plan",s:"電話訂 · 聖老楞佐+中央市場旁"},
+  {t:"16:00",k:"tk",lock:1,n:"學院美術館(大衛像)",s:"4人 · €96",u:"https://webshop.b-ticket.com/webshop/webticket/timeslot?tsproduction=4&language=it"},
+  {t:"19:00",k:"meal",n:"晚餐 Arà: è Sicilia",tag:"plan",s:"免訂 · 21:00 關"}]},
+ {n:9,date:"10/3",dow:"六",c:"florence",title:"百花聖殿 · 領主廣場 · 米開朗基羅廣場",outfit:"長褲 · 小正式",hotelKey:"florence",plan:[
+  {t:"09:30",k:"spot",n:"聖母百花聖殿"},
+  {t:"11:00",k:"spot",n:"共和廣場 + 野豬噴泉"},
+  {t:"12:30",k:"meal",n:"午餐 La Bistecca Fiorentina",tag:"ok",s:"已訂 · 4人"},
+  {t:"15:00",k:"spot",n:"領主廣場 + 舊宮"},
+  {t:"18:00",k:"spot",n:"米開朗基羅廣場(夕陽)"},
+  {t:"20:00",k:"meal",n:"晚餐 Trattoria Dall’Oste (SMN)",tag:"ok",s:"已訂 · 4人"}]},
+ {n:10,date:"10/4",dow:"日",c:"florence",title:"FREE · 佛羅倫斯自由日",outfit:"T恤 + 短褲",hotelKey:"florence",plan:[
+  {t:"上午",k:"spot",n:"睡飽 · 自由行程"},
+  {t:"10:30",k:"spot",n:"彼提宮 / 波波里花園(可選)"},
+  {t:"14:00",k:"spot",n:"聖羅倫佐皮革市集 / 逛街"},
+  {t:"全日",k:"tk",n:"穹頂票今日仍可用",s:"10/2 起 3 天內有效"}]},
+ {n:11,date:"10/5",dow:"一",c:"rome",title:"移動 · 摩西像 · 聖母大殿",outfit:"T恤 + 長褲",hotelKey:"rome",plan:[
+  {t:"09:33",k:"move",lock:1,n:"高鐵 佛羅倫斯 → 羅馬 Termini",s:"Trenitalia 09:33–11:14 · 已購票"},
+  {t:"12:00",k:"meal",n:"午餐 Ce Stamo A Pensà",tag:"plan",s:"僅現場"},
+  {t:"14:00",k:"spot",n:"聖伯多祿鎖鏈堂(摩西像)"},
+  {t:"15:30",k:"spot",n:"聖母大殿 Santa Maria Maggiore"},
+  {t:"19:00",k:"meal",n:"晚餐 Phở Việt / 华味居",tag:"plan",s:"原 Monti 週一休已改"}]},
+ {n:12,date:"10/6",dow:"二",c:"rome",title:"梵蒂岡 · 聖伯多祿 · 聖天使城堡",outfit:"T恤/格紋 + 長褲",hotelKey:"rome",plan:[
+  {t:"09:30",k:"tk",lock:1,n:"梵蒂岡博物館 + 西斯汀",s:"4人 · Trip 購票"},
+  {t:"12:00",k:"meal",n:"午餐 Forno Feliziani",tag:"plan",s:"麵包店 · 走進去"},
+  {t:"13:30",k:"spot",n:"聖伯多祿大殿"},
+  {t:"15:30",k:"spot",n:"聖天使城堡"},
+  {t:"19:30",k:"meal",n:"晚餐 Ristorante Arlù",tag:"ok",s:"已訂 · 長褲"}]},
+ {n:13,date:"10/7",dow:"三",c:"rome",title:"西班牙階梯 · 特雷維 · 萬神殿 · 納沃納",outfit:"T恤 + 短褲",hotelKey:"rome",plan:[
+  {t:"09:30",k:"spot",n:"西班牙階梯"},
+  {t:"10:30",k:"spot",n:"特雷維噴泉(投幣)"},
+  {t:"12:00",k:"tk",lock:1,n:"萬神殿 Pantheon",s:"4人 · €28.28",u:"https://portale.museiitaliani.it/b2c/buyTicketless/33f77159-0acd-40c4-8524-701f33aae108"},
+  {t:"13:00",k:"meal",n:"午餐 Pane e Salame(帕尼尼)",tag:"plan",s:"名店 · 現場"},
+  {t:"15:00",k:"spot",n:"納沃納廣場"},
+  {t:"18:00",k:"meal",n:"晚餐 Tonnarello",tag:"plan",s:"不接訂 · 排隊 · 19:00前到"}]},
+ {n:14,date:"10/8",dow:"四",c:"rome",title:"競技場 · 古羅馬廣場 · 真理之口",outfit:"唐裝 + 短褲",hotelKey:"rome",plan:[
+  {t:"08:50",k:"tk",lock:1,n:"羅馬競技場 Full Experience(頂層)",s:"進場 08:50 · 頂層 Attic 票",u:"https://ticketing.colosseo.it/zh/eventi/full-experience-attico/"},
+  {t:"11:00",k:"spot",n:"古羅馬廣場 + 帕拉提諾山"},
+  {t:"13:00",k:"meal",n:"午餐 Nonna Betta",tag:"plan",s:"猶太區 · 週二休"},
+  {t:"15:00",k:"spot",n:"真理之口"},
+  {t:"19:00",k:"meal",n:"晚餐 Trattoria Vecchia Roma",tag:"plan",s:"電話訂 · 約19:00才開"}]},
+ {n:15,date:"10/9",dow:"五",c:"rome",title:"Outlet 購物日",outfit:"輕便好走",hotelKey:"rome",plan:[
+  {t:"10:00",k:"spot",n:"Castel Romano Designer Outlet"},
+  {t:"整日",k:"spot",n:"血拚 · 建議帶大空袋 / 留行李空間"}]},
  {n:16,date:"10/10",dow:"六",c:"transit",city:"羅馬 → 台灣",title:"返程 · 經慕尼黑轉機",ic:"✈️",
   move:"羅馬 Fiumicino <b>08:35</b> 起飛 → 慕尼黑轉機 → 台北<br><span style='font-size:.8rem;color:var(--ink-soft)'>前一晚請飯店代叫計程車</span>"},
  {n:17,date:"10/11",dow:"日",c:"transit",city:"抵達台北",title:"06:35 落地 · 回台中",ic:"🏠",
   move:"<b>06:35</b> 抵台北 T2 · 返回台中<br><span style='font-size:.8rem;color:var(--ink-soft)'>Buon viaggio — 旅程圓滿</span>"},
 ];
 
-function tik(ts){return `<div class="grp"><div class="lbl">🎟 訂票時段</div><div class="lines">`+
-  ts.map(t=>`<div class="li"><span class="t">${t.t}</span><span class="x"><span class="n">${t.u?`<a href="${t.u}" target="_blank" rel="noopener">${t.n}</a>`:t.n}</span>${t.s?`<span class="s"> ${t.s}</span>`:""}</span></div>`).join("")+`</div></div>`;}
-function meals(d,city){
-  const row=(lab,m)=> m?`<div class="li"><span class="t">${lab} ${m.t}</span><span class="x"><span class="n"><a href="${map(m.n+" "+city)}" target="_blank" rel="noopener">${m.n}</a></span><span class="tag ${m.b}">${m.b==="ok"?"已訂":m.b==="warn"?"注意":"計畫"}</span>${m.s?`<span class="s"> ${m.s}</span>`:""}</span></div>`:"";
-  if(!d.lunch&&!d.dinner) return "";
-  return `<div class="grp"><div class="lbl">🍽 餐廳</div><div class="lines">${row("午",d.lunch)}${row("晚",d.dinner)}</div></div>`;
+const ICON={move:"🚄",spot:"📍",meal:"🍽️",tk:"🎟️"};
+function evHTML(e,city){
+  const clickable = e.u || e.k==="spot" || e.k==="meal";
+  const href = e.u ? e.u : (e.k==="spot"||e.k==="meal") ? map(e.n.replace(/^(午餐|晚餐)\s?/,"")+" "+city) : null;
+  const tagHTML = e.tag?`<span class="tag ${e.tag}">${e.tag==="ok"?"已訂":e.tag==="warn"?"注意":"計畫"}</span>`:"";
+  const lockHTML = e.lock?`<span class="lockpill">定時·購票</span>`:"";
+  const inner = `<span class="et">${e.t}</span><span class="eb"><span class="en"><span class="ico">${ICON[e.k]||"•"}</span>${e.n}${lockHTML}${tagHTML}</span>${e.s?`<span class="es">${e.s}</span>`:""}</span>`;
+  return href
+    ? `<a class="ev ${e.lock?"lock":""}" href="${href}" target="_blank" rel="noopener">${inner}</a>`
+    : `<div class="ev ${e.lock?"lock":""}">${inner}</div>`;
 }
 function slideHTML(d){
-  const city=d.city||C[d.c];
-  const h=d.hotelKey?HOTELS[d.hotelKey]:null;
-  const isSparse = !d.spots && (d.move || d.ic);
+  const city=d.city||C[d.c]; const h=d.hotelKey?HOTELS[d.hotelKey]:null;
   let inner;
-  if(isSparse){
+  if(!d.plan){
     inner = `<div class="s-head"><span class="s-daytag">DAY ${d.n}</span><span class="s-date">${d.date} · 星期${d.dow}</span></div>
-      <div class="hero-mid">
-        <div class="big-ic">${d.ic||"✈️"}</div>
+      <div class="hero-mid"><div class="big-ic">${d.ic||"✈️"}</div>
         <div class="s-city" style="font-size:clamp(2rem,9vw,2.8rem)">${city}</div>
-        <div class="s-title big">${d.title}</div>
-        <div class="move-card">${d.move||""}</div>
-      </div>`;
+        <div class="s-title" style="color:var(--ink);font-size:1.1rem">${d.title}</div>
+        <div class="move-card">${d.move||""}</div></div>`;
   } else {
     inner = `<div class="s-head"><span class="s-daytag">DAY ${d.n}</span><span class="s-date">${d.date} · 星期${d.dow}</span></div>
-      <div class="s-city">${city}</div>
-      <div class="s-title">${d.title}</div>`;
-    if(d.move) inner += `<div class="grp"><div class="lines"><div class="li"><span class="x">${d.move}</span></div></div></div>`;
-    if(d.spots) inner += `<div class="grp"><div class="lbl">📍 行程重點</div><div class="spots">`+
-      d.spots.map(s=>`<a class="spot" href="${map(s+" "+city)}" target="_blank" rel="noopener"><span class="pin">●</span>${s}</a>`).join("")+`</div></div>`;
-    if(d.tickets) inner += tik(d.tickets);
-    inner += meals(d,city);
-    if(d.note) inner += `<div class="grp"><div class="lines"><div class="li"><span class="x">💡 ${d.note}</span></div></div></div>`;
-    inner += `<div class="strip">`;
+      <div class="s-city">${city}</div><div class="s-title">${d.title}</div>
+      <div class="tl">${d.plan.map(e=>evHTML(e,city)).join("")}</div>
+      <div class="strip">`;
     if(d.outfit){
-      const lb = (d.n>=2 && d.n<=15) ? `https://mikematw0316-labbot.github.io/italy-outfit-lookbook/#day-${String(d.n-1).padStart(2,"0")}` : null;
-      inner += `<div class="fx"><span class="ic">👕</span><span><b>服裝</b>　${lb?`<a href="${lb}" target="_blank" rel="noopener">${d.outfit} · 看穿搭型錄 →</a>`:d.outfit}</span></div>`;
+      const lb=(d.n>=2&&d.n<=15)?`https://mikematw0316-labbot.github.io/italy-outfit-lookbook/#day-${String(d.n-1).padStart(2,"0")}`:null;
+      inner += `<div class="fx"><span>👕</span><span><b>服裝</b>　${lb?`<a href="${lb}" target="_blank" rel="noopener">${d.outfit} · 看穿搭型錄 →</a>`:d.outfit}</span></div>`;
     }
-    if(h) inner += `<div class="fx"><span class="ic">🏨</span><span><a href="${map(h.name)}" target="_blank" rel="noopener">${h.name}</a><br><span class="ad">${h.addr}</span></span></div>`;
+    if(h) inner += `<div class="fx"><span>🏨</span><span><a href="${map(h.name)}" target="_blank" rel="noopener">${h.name}</a> <span class="ad">· ${h.addr}</span></span></div>`;
     inner += `</div>`;
   }
   return `<section class="slide" id="d${d.n}" data-c="${d.c}"><div class="wm">${d.n}</div><div class="content">${inner}</div></section>`;
@@ -265,21 +251,15 @@ document.getElementById("deck").innerHTML = DAYS.map(slideHTML).join("");
 document.getElementById("daynav").innerHTML = DAYS.map(d=>
   `<a class="chip" data-c="${d.c}" href="#d${d.n}"><span class="cn">${d.n}</span><span>${d.date}</span></a>`).join("");
 
-const deck=document.getElementById("deck");
-const chips=[...document.querySelectorAll(".chip")];
+const deck=document.getElementById("deck"), chips=[...document.querySelectorAll(".chip")];
 const slides=DAYS.map(d=>document.getElementById("d"+d.n));
-const counter=document.getElementById("counter");
-const hint=document.getElementById("hint");
-
-// smooth anchor jump inside the scroll container (avoid page-level jump under fixed nav)
+const counter=document.getElementById("counter"), hint=document.getElementById("hint");
 chips.forEach((c,i)=>c.addEventListener("click",e=>{e.preventDefault(); slides[i].scrollIntoView({behavior:"smooth"});}));
-
 const io=new IntersectionObserver(es=>{es.forEach(e=>{ if(e.isIntersecting){
   const i=slides.indexOf(e.target);
   chips.forEach(c=>c.classList.remove("active"));
   if(chips[i]){chips[i].classList.add("active"); chips[i].scrollIntoView({behavior:"smooth",inline:"center",block:"nearest"});}
-  counter.textContent=(i+1)+" / "+DAYS.length;
-  hint.style.opacity = i===0 ? "1":"0";
+  counter.textContent=(i+1)+" / "+DAYS.length; hint.style.opacity=i===0?"1":"0";
 }});},{root:deck,threshold:.55});
 slides.forEach(s=>io.observe(s));
 </script>
